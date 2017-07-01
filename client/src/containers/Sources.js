@@ -9,7 +9,7 @@ import * as sourcesActions from '../actions/sourcesActions';
 class Sources extends Component {
 
   componentWillMount() {
-    this.actions.getSources()
+    this.props.actions.getSources()
   }
 
 
@@ -20,7 +20,7 @@ class Sources extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) -> {
+const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators(sourcesActions, dispatch)
   };
