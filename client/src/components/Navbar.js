@@ -9,24 +9,39 @@ function logout(event) {
   Auth.logOut();
 }
 
-const Navbar = () =>
-  <nav className="navbar">
-      <NavLink
-        className="navlink"
-        to="/"
-      >Home</NavLink>
-      <NavLink
-        className="navlink"
-        to="/channels"
-      >Channels</NavLink>
-      <NavLink
-        className="navlink"
-        to="/sources"
-      >Sources</NavLink>
-      <a href="#"
-        className="navlink"
-        onClick={(e) => {logout(e)}}
-      >Logout</a>
-  </nav>
+const Navbar = () => {
+  if (Auth.loggedIn()) {
+    return (
+      <nav className="navbar">
+          <NavLink
+            className="navlink"
+            to="/channels"
+          >Home</NavLink>
+          <NavLink
+            className="navlink"
+            to="/sources"
+          >Sources</NavLink>
+          <a href="#"
+            className="navlink"
+            onClick={(e) => {logout(e)}}
+          >Logout</a>
+      </nav>
+    )
+  } else {
+    return (
+      <nav className="navbar">
+          <NavLink
+            className="navlink"
+            to="/"
+          >Home</NavLink>
+          <NavLink
+            className="navlink"
+            to="/sources"
+          >Sources</NavLink>
+      </nav>
+    )
+  }
+}
+
 
 export default Navbar

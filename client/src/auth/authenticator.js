@@ -1,5 +1,5 @@
 class Auth {
-  static LoggedIn() {
+  static loggedIn() {
     return !!sessionStorage.jwt
   }
 
