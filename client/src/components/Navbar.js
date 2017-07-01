@@ -17,12 +17,12 @@ const Navbar = () =>
       >Home</NavLink>
       <NavLink
         className="navlink"
-        to="/channels"
-      >Channels</NavLink>
+        to="/newsfeed"
+      >Newsfeed</NavLink>
       <NavLink
         className="navlink"
-        to="/choose-channels"
-      >Choose Channels</NavLink>
+        to="/sources"
+      >Sources</NavLink>
       <a href="#"
         className="navlink"
         onClick={(e) => {logout(e)}}
