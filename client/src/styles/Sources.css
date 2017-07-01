@@ -1,11 +1,13 @@
-.sources-diplay {
+.sources-display {
   display: inline-block;
   float: right;
   width: 45%;
   overflow: scroll;
   border: 1px solid black;
+  padding: 10px;
   margin: 1%;
   background-color: white;
+  color: black
 }
 
 .source {
@@ -23,8 +25,4 @@
   float: left;
   width: 45%;
   length: 100%;
-}
-
-.sources-placeholder {
-  visibility: hidden;
 }

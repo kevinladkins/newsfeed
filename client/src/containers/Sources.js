@@ -19,10 +19,10 @@ class Sources extends Component {
 
     const sourcesList = this.props.sources.map((source, index) => {
       return (
-        <div className="source" key={index}>
+        <span className="source" key={index}>
           <h3>{source.name}</h3>
           <p>{source.description}</p>
-        </div>
+        </span>
       )
     })
 
@@ -31,7 +31,6 @@ class Sources extends Component {
       <div className="sources-container">
         <div className="sources">
           <h2>Select sources for your newsfeed:</h2>
-          <span className="sources-placeholder">{sourcesList}</span>
         </div>
         <div className="sources-display">
           {sourcesList}
