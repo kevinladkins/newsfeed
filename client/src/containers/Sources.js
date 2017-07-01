@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 
 import * as sourcesActions from '../actions/sourcesActions';
+import '../styles/Sources.css'
 
 
 
@@ -18,17 +19,23 @@ class Sources extends Component {
 
     const sourcesList = this.props.sources.map((source, index) => {
       return (
-        <div key={index}>
+        <div className="source" key={index}>
           <h3>{source.name}</h3>
           <p>{source.description}</p>
         </div>
       )
     })
-    
+
+
     return (
-      <div>
-      <h2>Select sources for your newsfeed:</h2>
-      {sourcesList}
+      <div className="sources-container">
+        <div className="sources">
+          <h2>Select sources for your newsfeed:</h2>
+          <span className="sources-placeholder">{sourcesList}</span>
+        </div>
+        <div className="sources-display">
+          {sourcesList}
+        </div>
       </div>
     )
   }

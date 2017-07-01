@@ -1,0 +1,30 @@
+.sources-diplay {
+  display: inline-block;
+  float: right;
+  width: 45%;
+  overflow: scroll;
+  border: 1px solid black;
+  margin: 1%;
+  background-color: white;
+}
+
+.source {
+  color: black;
+  background-color: white;
+  text-align: left;
+}
+
+.source p, h3 {
+  background-color: white;
+}
+
+.sources {
+  display: inline-block;
+  float: left;
+  width: 45%;
+  length: 100%;
+}
+
+.sources-placeholder {
+  visibility: hidden;
+}
