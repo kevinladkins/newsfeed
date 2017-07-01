@@ -6,9 +6,15 @@ import {bindActionCreators} from 'redux'
 class Newsfeed extends Component {
 
   render() {
-    return(
-      <h1>Placeholder</h1>
-    )
+    if (this.props.channels.length == 0) {
+      return (
+        <h2>You have not added any channels yet</h2>
+      )
+    } else {
+      return(
+        <h1>Placeholder</h1>
+      )
+    }
   }
 }
 
