@@ -1,6 +1,13 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
+import Auth from '../auth/authenticator'
 import '../styles/Navbar.css'
+
+
+function logout(event) {
+  event.preventDefault();
+  Auth.logOut();
+}
 
 const Navbar = () =>
   <nav className="navbar">
@@ -16,10 +23,10 @@ const Navbar = () =>
         className="navlink"
         to="/choose-channels"
       >Choose Channels</NavLink>
-      <NavLink
+      <a href="#"
         className="navlink"
-        to="/logout"
-      >Logout</NavLink>
+        onClick={(e) => {logout(e)}}
+      >Logout</a>
   </nav>
 
 export default Navbar
