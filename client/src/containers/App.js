@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router} from 'react-router-dom'
 
-import Home from '../components/Home'
+import Routes from './Routes'
 import Header from '../components/Header'
 import '../styles/App.css';
 
@@ -12,7 +12,7 @@ class App extends Component {
       <Router>
         <div className="App">
             <Header />
-            <Home />
+            <Routes />
         </div>
       </Router>
     );
