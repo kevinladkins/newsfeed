@@ -12,4 +12,10 @@ class Newsfeed extends Component {
   }
 }
 
-export default Newsfeed
+const mapStateToProps = (state) => {
+  return {
+    channels: state.channels
+  }
+}
+
+export default connect(mapStateToProps)(Newsfeed)
