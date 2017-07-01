@@ -3,6 +3,7 @@ import {BrowserRouter as Router} from 'react-router-dom'
 
 import Routes from './Routes'
 import Header from '../components/Header'
+import Navbar from '../components/Navbar'
 import '../styles/App.css';
 
 
@@ -12,6 +13,7 @@ class App extends Component {
       <Router>
         <div className="App">
             <Header />
+            <Navbar />
             <Routes />
         </div>
       </Router>

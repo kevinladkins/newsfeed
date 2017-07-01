@@ -1,30 +1,25 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
+import '../styles/Navbar.css'
 
-const NavBar = () =>
+const Navbar = () =>
   <nav className="navbar">
-    <div>
       <NavLink
         className="navlink"
         to="/"
       >Home</NavLink>
-    </div>
-    <div>
       <NavLink
         className="navlink"
         to="/channels"
       >Channels</NavLink>
-    </div>
-    <div>
       <NavLink
         className="navlink"
         to="/choose-channels"
       >Choose Channels</NavLink>
-    </div>
-    <div>
       <NavLink
         className="navlink"
         to="/logout"
       >Logout</NavLink>
-    </div>
   </nav>
+
+export default Navbar

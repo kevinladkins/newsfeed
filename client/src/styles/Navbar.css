@@ -1,0 +1,18 @@
+.navbar {
+  width: 100%;
+  background: white;
+
+}
+
+.navlink {
+  text-decoration: none;
+  padding: 6px 20px 6px 20px;
+  background: white;
+  color: black;
+  display: inline-block;
+}
+
+a:hover {
+  background: black;
+  color: white;
+}
