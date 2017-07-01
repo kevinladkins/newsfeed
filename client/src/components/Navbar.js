@@ -17,8 +17,8 @@ const Navbar = () =>
       >Home</NavLink>
       <NavLink
         className="navlink"
-        to="/newsfeed"
-      >Newsfeed</NavLink>
+        to="/channels"
+      >Channels</NavLink>
       <NavLink
         className="navlink"
         to="/sources"

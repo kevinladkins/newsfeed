@@ -3,7 +3,9 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 
 
-class Newsfeed extends Component {
+class Channels extends Component {
+
+
 
   render() {
     if (this.props.channels.length == 0) {
@@ -24,4 +26,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Newsfeed)
+export default connect(mapStateToProps)(Channels)

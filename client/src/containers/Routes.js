@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {Route, Switch} from 'react-router-dom'
 
 import Home from '../components/Home'
-import Newsfeed from './Newsfeed'
+import Channels from './Channels'
 import Sources from './Sources'
 
 
@@ -12,7 +12,7 @@ export default class Routes extends Component {
       <Switch>
         <Route exact path='/' component={Home}/>
         <Route exact path='/sources' component={Sources} />
-        <Route exact path='/newsfeed' component={Newsfeed} />
+        <Route exact path='/channels' component={Channels} />
       </Switch>
     )
   }
