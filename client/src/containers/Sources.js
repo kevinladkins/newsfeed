@@ -13,9 +13,23 @@ class Sources extends Component {
   }
 
 
+
   render() {
+
+    const sourcesList = this.props.sources.map((source, index) => {
+      return (
+        <div key={index}>
+          <h3>{source.name}</h3>
+          <p>{source.description}</p>
+        </div>
+      )
+    })
+    
     return (
-      <h1>Coming Soon</h1>
+      <div>
+      <h2>Select sources for your newsfeed:</h2>
+      {sourcesList}
+      </div>
     )
   }
 }
@@ -26,4 +40,8 @@ const mapDispatchToProps = (dispatch) => {
   };
 }
 
-export default connect(null, mapDispatchToProps)(Sources)
+const mapStateToProps = (state) => {
+  return {sources: state.sources}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sources)
