@@ -6,5 +6,7 @@ class Auth {
   static logOut() {
     sessionStorage.removeItem('jwt');
   }
-  
+
 }
+
+export default Auth
