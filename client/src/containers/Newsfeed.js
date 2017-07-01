@@ -11,3 +11,5 @@ class Newsfeed extends Component {
     )
   }
 }
+
+export default Newsfeed
