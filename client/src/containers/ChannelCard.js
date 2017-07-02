@@ -1,5 +1,6 @@
 
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 import Card from '../components/Card'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
@@ -44,9 +45,13 @@ class ChannelCard extends Component {
       return (<h4 className="article-title">{article.title}</h4>)
     })
 
+    const title = (
+      <Link to={`/newsfeed/${this.props.channel.source_id}`}>{this.name}</Link>
+    )
+
 
     return (
-      <Card title={this.name} content={articles}/>
+      <Card title={title} content={articles}/>
     )
   }
 }
