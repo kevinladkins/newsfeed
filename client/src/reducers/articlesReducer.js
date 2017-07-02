@@ -1,8 +1,15 @@
 import initialState from './initialState'
 
 
+
 export default function articlesReducer(state = initialState.articles, action) {
   switch(action.type) {
+    case 'LOADING_ARTICLES':
+      if (!state.find(element => element.name === action.payload.name)) {
+        return [...state, action.payload]
+      } else {
+        return state
+      }
     case 'GET_ARTICLES':
       if (state.find(element => element.name === action.payload.name)) {
         const source = state.find(element => element.name === action.payload.name);
@@ -11,8 +18,7 @@ export default function articlesReducer(state = initialState.articles, action) {
         newState[sourceIndex] = action.payload;
         return newState
       } else {
-        const newState = [...state, action.payload];
-        return newState
+        return [...state, action.payload];
       }
 
     default:
