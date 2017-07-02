@@ -8,10 +8,11 @@ import * as channelsActions from '../actions/channelsActions'
 class ChannelsShow extends Component {
   constructor(props) {
     super();
-    // this.state = {
-    //   articles: []
-    // }
+    this.state = {
+      articles: []
+    }
     this.setArticles = this.setArticles.bind(this)
+    this.name = props.channel.name
   }
 
   componentWillMount() {
@@ -27,12 +28,24 @@ class ChannelsShow extends Component {
   }
 
   setArticles() {
-    this.props.actions.getArticles(this.props.channel)
+    this.props.actions.getArticles(this.props.channel).then(response => {
+      this.setState({
+        articles: response
+      })
+    })
   }
 
+
+
+
   render() {
+    const articles = this.state.articles.map((article, index) => {
+      return (<h4 className="article-title">{article.title}</h4>)
+    })
+
+
     return (
-      <Card title={this.props.channel.name} />
+      <Card title={this.props.channel.name} content={articles}/>
     )
   }
 }
@@ -44,4 +57,8 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(ChannelsShow)
+const mapStateToProps = (state) => {
+  return {articles: state.articles}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelsShow)

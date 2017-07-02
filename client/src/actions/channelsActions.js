@@ -11,7 +11,7 @@ export function getArticles(channel) {
             articles: response.articles
           }
         })
-
+      return response.articles
       })
       .catch(error => {
         throw(error);
