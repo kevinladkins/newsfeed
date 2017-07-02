@@ -21,6 +21,17 @@
   color: black;
 }
 
-.card h3 {
+.card h2 {
+  background: white;
   padding: 5px;
+}
+
+.card-content {
+  background-color: white;
+  overflow: scroll;
+}
+
+.article-title {
+  background: white;
+  color: black;
 }

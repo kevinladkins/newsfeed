@@ -4,8 +4,8 @@ import '../styles/card.css'
 const Card = (props) => {
   return (
     <div className="card">
-      <h3>{props.title}</h3>
-      {props.content}
+      <h2>{props.title}</h2>
+      <div className="card-content">{props.content}</div>
     </div>
   )
 
