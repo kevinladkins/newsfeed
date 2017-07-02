@@ -13,5 +13,6 @@ const channels = [
 
 export default {
   sources: [],
-  channels: channels
+  channels: channels,
+  articles: []
 }
