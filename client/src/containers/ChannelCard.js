@@ -1,8 +1,12 @@
+
+import React, {Component} from 'react'
+import Card from '../components/Card'
+import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 
 import * as channelsActions from '../actions/channelsActions'
 
-class Channel extends Component {
+class ChannelCard extends Component {
   constructor(props) {
     super();
     this.state = {
@@ -42,7 +46,7 @@ class Channel extends Component {
 
 
     return (
-      <h1>Real?</h1>
+      <Card title={this.name} content={articles}/>
     )
   }
 }
@@ -58,4 +62,4 @@ const mapStateToProps = (state) => {
   return {articles: state.articles}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Channels)
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelCard)

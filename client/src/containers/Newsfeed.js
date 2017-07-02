@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Route} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
-import Channel from './Channel'
+import Channels from './Channels'
 
 
 class Newsfeed extends Component {
@@ -10,20 +10,16 @@ class Newsfeed extends Component {
 
 
   render() {
-    var channels = this.props.channels.map((channel, index) => {
-       return (
-       <Channel channel={channel} key={index}/>
-       )
-    })
     if (this.props.channels.length == 0) {
       return (
         <h2>You have not added any channels yet</h2>
       )
     } else {
       return(
-        <div>
-          {channels}
-        </div>
+        <Switch>
+          <Route exact path={this.props.match.url} children={() =>
+  <Channels channels={this.props.channels} />}  />
+        </Switch>
       )
     }
   }
