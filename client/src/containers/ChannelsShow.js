@@ -21,7 +21,7 @@ class ChannelsShow extends Component {
 
   render() {
     return (
-      <Card title={this.props.channel.name} />
+      <Card title={this.props.channel} />
     )
   }
 }
