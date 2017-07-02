@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
-import {Link} from 'react-router-dom'
-import ArticleCard from './ArticleCard'
+import {Switch, Route} from 'react-router-dom'
 
+import ArticleCard from './ArticleCard'
+import Article from './Article'
 import '../styles/card.css'
 import Card from '../components/Card'
 import * as channelsActions from '../actions/channelsActions'
@@ -38,20 +39,27 @@ class Channel extends Component {
     })
   }
 
-
-
-
   render() {
     const articles = this.state.articles.map((article, index) => (
         <ArticleCard article={article} channel={this.props.channel} key={index} />
     ))
 
+    const MyArticle = (props) => {
+      return (
+        <Article
+          channelName={this.name}
+          {...props}
+        />
+      );
+    }
+
 
     return (
-      <div>
-        <h1>{this.name}</h1>
-        {articles}
-      </div>
+      <Switch>
+        <Route exact path={this.props.match.url} render = {() => <div>
+          <h1>{this.name}</h1>  {articles}  </div>}/>
+        <Route path={`${this.props.match.url}/:article`} render={MyArticle} />
+      </Switch>
     )
   }
 }
