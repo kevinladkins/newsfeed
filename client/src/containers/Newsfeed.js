@@ -2,17 +2,17 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Route} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
-import ChannelsShow from './ChannelsShow'
+import Channel from './Channel'
 
 
-class Channels extends Component {
+class Newsfeed extends Component {
 
 
 
   render() {
     var channels = this.props.channels.map((channel, index) => {
        return (
-       <ChannelsShow channel={channel} key={index}/>
+       <Channel channel={channel} key={index}/>
        )
     })
     if (this.props.channels.length == 0) {
@@ -35,4 +35,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Channels)
+export default connect(mapStateToProps)(Newsfeed)

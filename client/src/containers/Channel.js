@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux'
 
 import * as channelsActions from '../actions/channelsActions'
 
-class ChannelsShow extends Component {
+class Channel extends Component {
   constructor(props) {
     super();
     this.state = {
@@ -61,4 +61,4 @@ const mapStateToProps = (state) => {
   return {articles: state.articles}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChannelsShow)
+export default connect(mapStateToProps, mapDispatchToProps)(Channel)

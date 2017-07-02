@@ -15,7 +15,7 @@ const Navbar = () => {
       <nav className="navbar">
           <NavLink
             className="navlink"
-            to="/channels"
+            to="/newsfeed"
           >Home</NavLink>
           <NavLink
             className="navlink"
