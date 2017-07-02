@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Switch, Route} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import Channels from './Channels'
+import Channel from './Channel'
 
 
 class Newsfeed extends Component {
@@ -19,6 +20,7 @@ class Newsfeed extends Component {
         <Switch>
           <Route exact path={this.props.match.url} children={() =>
   <Channels channels={this.props.channels} />}  />
+          <Route path ={`${this.props.match.url}/:ChannelName`} component={Channel} />
         </Switch>
       )
     }
