@@ -1,9 +1,18 @@
 import {fetchChannels} from '../api/channelsApi'
 
 export function getArticles(channel) {
-  return function() {
+  return function(dispatch) {
     return fetchChannels(channel)
-      .then(response => {response.articles})
+      .then(response => {
+        dispatch({
+          type: 'GET_ARTICLES',
+          payload: {
+            title: channel.name,
+            articles: response.articles
+          }
+        })
+
+      })
       .catch(error => {
         throw(error);
        });
