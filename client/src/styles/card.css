@@ -26,6 +26,11 @@
   padding: 5px;
 }
 
+.card a {
+  background: white;
+  color: black;
+}
+
 .card-content {
   background-color: white;
   overflow: scroll;
