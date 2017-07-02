@@ -45,7 +45,7 @@ class Channel extends Component {
 
 
     return (
-      <Card title={this.props.channel.name} content={articles}/>
+      <Card title={this.name} content={articles}/>
     )
   }
 }

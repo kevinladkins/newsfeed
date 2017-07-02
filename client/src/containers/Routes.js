@@ -12,7 +12,7 @@ export default class Routes extends Component {
       <Switch>
         <Route exact path='/' component={Home}/>
         <Route exact path='/sources' component={Sources} />
-        <Route exact path='/newsfeed' component={Newsfeed} />
+        <Route path='/newsfeed' component={Newsfeed} />
       </Switch>
     )
   }
