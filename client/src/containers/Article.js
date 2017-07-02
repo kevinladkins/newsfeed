@@ -2,10 +2,15 @@ import React from 'react'
 import {connect} from 'react-redux';
 
 
-const Article = (props) => {
-  console.log(props.article)
+const Article = ({article, channelName}) => {
   return (
-    <h1>Hiya</h1>
+    <div>
+      <h1>{article.title}</h1>
+      <img src={article.urlToImage} className="image"/>
+      <h5>Posted at: {article.publishedAt}</h5>
+      <p>{article.description}</p>
+      <a href={article.url} target="_blank">Read full article on {channelName}</a>
+    </div>
   )
 }
 
