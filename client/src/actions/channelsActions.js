@@ -7,7 +7,7 @@ export function getArticles(channel) {
         dispatch({
           type: 'GET_ARTICLES',
           payload: {
-            title: channel.name,
+            name: channel.name,
             articles: response.articles
           }
         })

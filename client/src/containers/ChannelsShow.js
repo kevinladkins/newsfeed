@@ -37,6 +37,7 @@ class ChannelsShow extends Component {
   }
 }
 
+
 const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators(channelsActions, dispatch)
