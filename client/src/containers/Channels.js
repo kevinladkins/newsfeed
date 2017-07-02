@@ -10,9 +10,9 @@ class Channels extends Component {
 
 
   render() {
-    var channels = this.props.channels.map(channel => {
+    var channels = this.props.channels.map((channel, index) => {
        return (
-       <ChannelsShow channel={channel} />
+       <ChannelsShow channel={channel} key={index}/>
        )
     })
     if (this.props.channels.length == 0) {

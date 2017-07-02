@@ -1,8 +1,14 @@
-
+import React from 'react'
+import '../styles/card.css'
 
 const Card = (props) => {
-  <div key={index} className="headlines">
-    <h3>{props.title}</h3>
-  </div>
+  return (
+    <div className="card">
+      <h3>{props.title}</h3>
+      {props.content}
+    </div>
+  )
 
 }
+
+export default Card
