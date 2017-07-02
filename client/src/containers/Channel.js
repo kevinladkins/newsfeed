@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
+import {Link} from 'react-router-dom'
 
 import '../styles/card.css'
+import Card from '../components/Card'
 import * as channelsActions from '../actions/channelsActions'
 
 class Channel extends Component {
@@ -35,13 +37,15 @@ class Channel extends Component {
     })
   }
 
-
+  setArticleLink(title) {
+    return encodeURIComponent(title)
+  }
 
 
   render() {
-    var articles = this.state.articles.map((article, index) => (
+    const articles = this.state.articles.map((article, index) => (
         <div key={index} className="card">
-          <h3>{article.title}</h3>
+          <Link to={`/newsfeed/${this.props.channel.source_id}/${this.setArticleLink(article.title)}`}><h3>{article.title}</h3></Link>
           <img src={article.urlToImage} className="image"/>
         </div>
     ))
