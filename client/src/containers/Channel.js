@@ -1,5 +1,8 @@
+import React, {Component} from 'react'
+import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 
+import '../styles/card.css'
 import * as channelsActions from '../actions/channelsActions'
 
 class Channel extends Component {
@@ -36,13 +39,19 @@ class Channel extends Component {
 
 
   render() {
-    const articles = this.state.articles.map((article, index) => {
-      return (<h4 className="article-title">{article.title}</h4>)
-    })
+    var articles = this.state.articles.map((article, index) => (
+        <div key={index} className="card">
+          <h3>{article.title}</h3>
+          <img src={article.urlToImage} className="image"/>
+        </div>
+    ))
 
 
     return (
-      <h1>Real?</h1>
+      <div>
+        <h1>{this.name}</h1>
+        {articles}
+      </div>
     )
   }
 }
@@ -54,8 +63,20 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {articles: state.articles}
+const mapStateToProps = (state, ownProps) => {
+  const channel = state.channels.find(channel => channel.source_id == ownProps.match.params.ChannelId)
+
+  if (channel) {
+    return {
+        articles: state.articles,
+        channel: channel
+    }
+  } else {
+  return {
+    articles: state.articles,
+    channel: {}
+  }
+ }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Channels)
+export default connect(mapStateToProps, mapDispatchToProps)(Channel)

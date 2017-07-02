@@ -20,7 +20,7 @@ class Newsfeed extends Component {
         <Switch>
           <Route exact path={this.props.match.url} children={() =>
   <Channels channels={this.props.channels} />}  />
-          <Route path ={`${this.props.match.url}/:ChannelName`} component={Channel} />
+          <Route path ={`${this.props.match.url}/:ChannelId`} component={Channel} />
         </Switch>
       )
     }
