@@ -9,12 +9,26 @@ import '../styles/Sources.css'
 
 
 class Sources extends Component {
+  constructor(props) {
+    super();
+    this.saveSources = this.saveSources.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
 
   componentWillMount() {
     if (this.props.sources.length == 0) {
       this.props.actions.getSources()
     }
    }
+
+  saveSources() {
+    document.getElementById("submit-button").click()
+  }
+
+  handleSubmit(event) {
+    event.preventDefault()
+    alert("Submitted")
+  }
 
   render() {
 
@@ -27,9 +41,10 @@ class Sources extends Component {
       <div className="sources-container">
         <div className="sources">
           <h2>Select sources for your newsfeed:</h2>
-          <button className="save-button">Save</button>
+          <button className="save-button" onClick={this.saveSources}>Save</button>
         </div>
-        <form className="sources-display">
+        <form id="sources-form" onSubmit={event => this.handleSubmit(event)}>
+          <input type="submit" className="hidden" id="submit-button"/>
           {sourcesList}
         </form>
       </div>
