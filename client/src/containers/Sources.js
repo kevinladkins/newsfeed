@@ -21,10 +21,10 @@ class Sources extends Component {
 
     const sourcesList = this.props.sources.map((source, index) => {
       return (
-        <span className="source" key={index}>
+        <div className="source" key={index}>
           <h3>{source.name}</h3>
           <p>{source.description}</p>
-        </span>
+        </div>
       )
     })
 
