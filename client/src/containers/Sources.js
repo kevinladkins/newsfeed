@@ -22,6 +22,7 @@ class Sources extends Component {
         <div className="source" key={index}>
           <h3>{source.name}</h3>
           <p>{source.description}</p>
+          <span className="hidden">This is a test</span>
         </div>
       )
     })
