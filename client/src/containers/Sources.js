@@ -13,6 +13,9 @@ class Sources extends Component {
     super();
     this.saveSources = this.saveSources.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.state = {
+      selected: []
+    }
   }
 
   componentWillMount() {
@@ -21,19 +24,23 @@ class Sources extends Component {
     }
    }
 
+
   saveSources() {
     document.getElementById("submit-button").click()
   }
 
   handleSubmit(event) {
     event.preventDefault()
-    alert("Submitted")
+    alert(this.state)
+  }
+
+  handleChange(event) {
+    console.log("Clicked")
   }
 
   render() {
-
     const sourcesList = this.props.sources.map((source, index) =>
-          <Source source={source} />
+          <Source source={source} key={index} handleChange={this.handleChange} />
     );
 
 
@@ -44,7 +51,7 @@ class Sources extends Component {
           <button className="save-button" onClick={this.saveSources}>Save</button>
         </div>
         <form id="sources-form" onSubmit={event => this.handleSubmit(event)}>
-          <input type="submit" className="hidden" id="submit-button"/>
+          <input type="submit"  id="submit-button"/>
           {sourcesList}
         </form>
       </div>
@@ -59,7 +66,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-  return {sources: state.sources}
+  return {sources: state.sources, channels: state.channels}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sources)
