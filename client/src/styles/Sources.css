@@ -37,3 +37,8 @@
 .hidden {
   display: none;
 }
+
+.save-button {
+  display: inline-block;
+  background-color: white;
+}
