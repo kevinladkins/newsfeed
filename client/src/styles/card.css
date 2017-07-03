@@ -42,6 +42,11 @@
   overflow: scroll;
 }
 
+.card-content a:hover {
+  color: gray;
+  background: white;
+}
+
 .article-title {
   background: white;
   color: black;
