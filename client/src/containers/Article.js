@@ -14,18 +14,9 @@ const Article = ({article, channelName}) => {
   )
 }
 
-//Fixes a glitch in the Match object (doesn't decode colons in the url)
-
-function fixMatchParams(matchParams) {
-  if (matchParams.split("%3A")) {
-    return matchParams.split("%3A").join(":")
-  } else {
-    return matchParams
-  }
-}
 
 function mapStateToProps(state, ownProps) {
-  const matchParams = fixMatchParams(ownProps.match.params.article)
+  const matchParams = decodeURIComponent(ownProps.match.params.article)
   var articles = []
     if (state.articles.find(channel => channel.name === ownProps.channelName)) {
       articles = state.articles.find(channel => channel.name === ownProps.channelName).articles;
