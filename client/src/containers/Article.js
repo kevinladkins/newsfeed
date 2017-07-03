@@ -14,13 +14,23 @@ const Article = ({article, channelName}) => {
   )
 }
 
+//Fix glitch in Match object encoding so match.params matches article.title
+
+function fixMatchParams(matchParams) {
+  if (matchParams.split("%3A")) {
+    return matchParams.split("%3A").join(":")
+  } else {
+    return matchParams
+  }
+}
 
 function mapStateToProps(state, ownProps) {
+  const matchParams = fixMatchParams(ownProps.match.params.article)
   var articles = []
     if (state.articles.find(channel => channel.name === ownProps.channelName)) {
       articles = state.articles.find(channel => channel.name === ownProps.channelName).articles;
     }
-  const article = articles.find(article => article.title === ownProps.match.params.article)
+  const article = articles.find(article => article.title === matchParams)
     if (article) {
       return {
           article: article
