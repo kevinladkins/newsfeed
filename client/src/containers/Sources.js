@@ -27,6 +27,7 @@ class Sources extends Component {
       <div className="sources-container">
         <div className="sources">
           <h2>Select sources for your newsfeed:</h2>
+          <button>Save</button>
         </div>
         <form className="sources-display">
           {sourcesList}
