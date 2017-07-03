@@ -38,11 +38,15 @@ class ChannelCard extends Component {
   }
 
 
-
+  setArticleLink(title) {
+    return encodeURIComponent(title)
+  }
 
   render() {
     const articles = this.state.articles.map((article, index) => {
-      return (<h4 className="article-title">{article.title}</h4>)
+      return (
+        <Link to={`/newsfeed/${this.props.channel.source_id}/${this.setArticleLink(article.title)}`}><h4 className="article-title">{article.title}</h4></Link>
+      )
     })
 
     const title = (
