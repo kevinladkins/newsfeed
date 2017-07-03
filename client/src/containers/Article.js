@@ -14,7 +14,7 @@ const Article = ({article, channelName}) => {
   )
 }
 
-//Fix glitch in Match object encoding so match.params matches article.title
+//Fixes a glitch in the Match object (doesn't decode colons in the url)
 
 function fixMatchParams(matchParams) {
   if (matchParams.split("%3A")) {
