@@ -14,6 +14,7 @@ class Source extends Component {
       <div className="source" >
         <h3>{this.props.source.name}</h3>
         <p>{this.props.source.description}</p>
+        <input type="checkbox" className="hidden" name={this.props.source.name} value={this.props.source.source_id} checked={this.state.selected} />
       </div>
     )
   }
