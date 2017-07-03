@@ -51,19 +51,16 @@ class Channel extends Component {
           {...props}
         />
       );
-    }
-
-
-    return (
-      <Switch>
-        <Route exact path={this.props.match.url} render = {() => <div>
-          <h1>{this.name}</h1>  {articles}  </div>}/>
-        <Route path={`${this.props.match.url}/:article`} render={MyArticle} />
-      </Switch>
-    )
   }
-}
 
+  return (
+    <Switch>
+      <Route exact path={this.props.match.url} render = {() => <div>
+        <h1>{this.name}</h1>  {articles}  </div>}/>
+      <Route path={`${this.props.match.url}/:article`} render={MyArticle} />
+    </Switch>
+   )}
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -76,15 +73,15 @@ const mapStateToProps = (state, ownProps) => {
 
   if (channel) {
     return {
-        articles: state.articles,
-        channel: channel
+      articles: state.articles,
+      channel: channel
     }
   } else {
-  return {
-    articles: state.articles,
-    channel: {}
+    return {
+      articles: state.articles,
+      channel: {}
+    }
   }
- }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Channel)

@@ -8,7 +8,7 @@ function setArticleLink(title) {
 const ArticleCard = ({channel, article}) => {
   return (
     <div className="card">
-      <Link to={`/newsfeed/${channel.source_id}/${setArticleLink(article.title)}`}>
+      <Link to={`/newsfeed/${channel.source_id}/${setArticleLink(article.title)}`} className="article-link">
         <h3>{article.title}</h3>
         <img src={article.urlToImage} className="image"/>
       </Link>

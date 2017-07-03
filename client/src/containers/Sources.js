@@ -15,8 +15,6 @@ class Sources extends Component {
     }
    }
 
-
-
   render() {
 
     const sourcesList = this.props.sources.map((source, index) => {
@@ -27,7 +25,6 @@ class Sources extends Component {
         </div>
       )
     })
-
 
     return (
       <div className="sources-container">
