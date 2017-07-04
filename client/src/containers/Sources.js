@@ -51,7 +51,7 @@ class Sources extends Component {
           <button className="save-button" onClick={this.saveSources}>Save</button>
         </div>
         <form id="sources-form" onSubmit={event => this.handleSubmit(event)}>
-          <input type="submit"  id="submit-button"/>
+          <input type="submit" className="hidden" id="submit-button"/>
           {sourcesList}
         </form>
       </div>
