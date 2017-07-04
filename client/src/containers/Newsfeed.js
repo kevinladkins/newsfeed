@@ -11,6 +11,15 @@ class Newsfeed extends Component {
 
 
   render() {
+    const MyChannels = (props) => {
+      return (
+        <Channels
+          channels={this.props.channels}
+          {...props}
+        />
+      );
+    }
+
     if (this.props.channels.length == 0) {
       return (
         <h2>You have not added any channels yet</h2>
@@ -18,8 +27,7 @@ class Newsfeed extends Component {
     } else {
       return(
         <Switch>
-          <Route exact path={this.props.match.url} children={() =>
-  <Channels channels={this.props.channels} />}  />
+          <Route exact path={this.props.match.url} render={MyChannels} />
           <Route path ={`${this.props.match.url}/:ChannelId`} component={Channel} />
         </Switch>
       )
