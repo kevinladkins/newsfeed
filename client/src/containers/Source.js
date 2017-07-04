@@ -23,6 +23,8 @@ class Source extends Component {
 
     }
 
+  
+
   setStyle() {
     if (this.state.selected === true) {
       return {background: 'yellow'}
@@ -32,13 +34,12 @@ class Source extends Component {
   }
 
   render() {
-
     var style = {background: 'yellow'}
     return(
       <div className="source" onClick={this.clickCheckbox} style={this.setStyle()}>
         <h3>{this.props.source.name}</h3>
         <p>{this.props.source.description}</p>
-        <input type="checkbox"  id={this.props.source.id} name={this.props.source.name} checked={this.state.selected} className="hidden" onChange={this.props.handleChange}/>
+        <input type="checkbox"  id={this.props.source.id} name={this.props.source.name} value={this.props.source.id} checked={this.state.selected} className="hidden" onChange={this.props.toggleSource(this.props.source.id)}/>
       </div>
     )
   }

@@ -22,6 +22,15 @@ class Sources extends Component {
     if (this.props.sources.length == 0) {
       this.props.actions.getSources()
     }
+    this.selectedSources = new Set();
+   }
+
+   toggleSource = label => {
+     if (this.selectedSources.has(label)) {
+       this.selectedSources.delete(label);
+     } else {
+       this.selectedSources.add(label)
+     }
    }
 
 
@@ -30,17 +39,16 @@ class Sources extends Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault()
-    alert(this.state)
+    event.preventDefault();
+    for (const checkbox of this.selectedSources) {
+      console.log(checkbox, 'is selected.');
+    }
   }
 
-  handleChange(event) {
-    console.log("Clicked")
-  }
 
   render() {
     const sourcesList = this.props.sources.map((source, index) =>
-          <Source source={source} key={index} handleChange={this.handleChange} />
+          <Source source={source} key={index} toggleSource={this.toggleSource} handleChange={this.handleChange} />
     );
 
 
