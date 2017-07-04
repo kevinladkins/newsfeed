@@ -69,7 +69,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const channel = state.channels.find(channel => channel.source_id == ownProps.match.params.ChannelId)
+  const channel = state.sources.find(source => source.source_id == ownProps.match.params.ChannelId)
 
   if (channel) {
     return {
