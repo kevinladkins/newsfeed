@@ -13,9 +13,6 @@ class Sources extends Component {
     super();
     this.saveSources = this.saveSources.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.state = {
-      selected: []
-    }
   }
 
   componentWillMount() {
@@ -74,7 +71,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-  return {sources: state.sources, channels: state.channels}
+  return {sources: state.sources}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sources)
