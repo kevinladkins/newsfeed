@@ -6,7 +6,6 @@ import articles from './articlesReducer'
 
 
 const rootReducer = combineReducers({
-  channels,
   sources,
   articles
 })
