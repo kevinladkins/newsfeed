@@ -37,11 +37,8 @@ class Sources extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    // debugger
-    // for (const checkbox of this.selectedSources) {
-    //   console.log(checkbox, 'is selected.');
-    // }
     this.props.actions.updateSources([...this.selectedSources])
+    this.props.history.push("/newsfeed")
   }
 
 
