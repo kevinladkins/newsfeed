@@ -13,3 +13,12 @@ export function getSources() {
        });
      }
   }
+
+  export function updateSources(selectedSources) {
+     return function(dispatch) {
+       dispatch({
+         type: 'EDIT_SOURCES',
+         payload: selectedSources
+       })
+     }
+  }
