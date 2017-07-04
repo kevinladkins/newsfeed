@@ -11,16 +11,18 @@ class Newsfeed extends Component {
 
 
   render() {
+    const channels = this.props.sources.filter((source) => !!source.selected)
+
     const MyChannels = (props) => {
       return (
         <Channels
-          channels={this.props.channels}
+          channels={channels}
           {...props}
         />
       );
     }
 
-    if (this.props.channels.length == 0) {
+    if (channels.length == 0) {
       return (
         <h2>You have not added any channels yet</h2>
       )
@@ -37,7 +39,7 @@ class Newsfeed extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    channels: state.channels
+    sources: state.sources
   }
 }
 
