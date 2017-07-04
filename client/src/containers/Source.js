@@ -13,6 +13,12 @@ class Source extends Component {
   }
 
 
+  //Adds already-selected sources to selectedSources Set
+  componentWillMount() {
+    if (this.state.selected) {
+      this.props.toggleSource(this.props.source.id)
+    }
+  }
 
   clickCheckbox() {
     this.state.selected === true ?
