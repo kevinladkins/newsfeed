@@ -16,9 +16,9 @@ class Sources extends Component {
   }
 
   componentWillMount() {
-    if (this.props.sources.length == 0) {
-      this.props.actions.getSources()
-    }
+    // if (this.props.sources.length == 0) {
+    //   this.props.actions.getSources()
+    // }
     this.selectedSources = new Set();
    }
 
