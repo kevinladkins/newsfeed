@@ -8,6 +8,8 @@ class Login extends Component {
       email: '',
       password: ''
     }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleSubmit(e) {
@@ -23,7 +25,7 @@ class Login extends Component {
     const name = e.target.name
     const value = e.target.value
     this.setState({
-      name: value
+      [name]: value
     })
   }
 
@@ -39,3 +41,5 @@ class Login extends Component {
     )
   }
 }
+
+export default Login
