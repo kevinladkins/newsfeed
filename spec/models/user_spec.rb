@@ -34,7 +34,13 @@ RSpec.describe User, type: :model do
      end
 
 
-     it "requires a password"
+     it "requires a password" do
+       user = User.new(password: nil, email: 'kevinladkins@gmail.com')
+       user.save
+
+       expect(user.valid?).to be(false)
+       expect(user.errors.full_messages).to eq(["Password can't be blank"])
+     end
 
   end
 
