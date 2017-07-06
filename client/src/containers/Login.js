@@ -1,5 +1,8 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux'
 
+import * as sessionsActions from '../actions/sessionsActions';
 
 class Login extends Component {
   constructor(props) {
@@ -14,7 +17,7 @@ class Login extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log("Submitted email: ", this.state.email, ", password: ", this.state.password)
+    this.props.actions.loginUser(this.state)
     this.setState({
       email: '',
       password: ''
@@ -42,4 +45,10 @@ class Login extends Component {
   }
 }
 
-export default Login
+function mapDispatchToProps(dispatch) {
+  return {actions:
+    bindActionCreators(sessionsActions, dispatch)
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Login)
