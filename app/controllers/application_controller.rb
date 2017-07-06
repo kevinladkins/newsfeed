@@ -8,17 +8,15 @@ class ApplicationController < ActionController::Base
   def authenticate
     if auth_present?
       begin
-        decoded = auth
-        @user_id = decoded[0]["user_id"]
+        @user_id = auth["user_id"]
       rescue JWT::DecodeError
         errors = [{message: "Token is invalid"}]
       end
-        if !current_user || !decoded || errors
+        if !current_user || errors
           render json: {
             errors: errors
           }, status: 403
         end
-      end
      else
        render json: {
          errors:
