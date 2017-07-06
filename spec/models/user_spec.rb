@@ -12,6 +12,14 @@ RSpec.describe User, type: :model do
       expect(user.errors.full_messages).to eq(["Email can't be blank", "Email is invalid"])
      end
 
+     it "requires email to be in correct format" do
+       user = User.new(password: 'password', email: 'kevinatgmail.com')
+       user.save
+
+       expect(user.valid?).to be(false)
+       expect(user.errors.full_messages).to eq(["Email is invalid"])
+     end
+
 
      it "requires email to be unique" do
        user = User.new(password: 'password', email: 'kevinladkins@gmail.com')
