@@ -116,13 +116,14 @@ RSpec.describe "Users", type: :request do
 
       before(:each) do
         @user = create(:user)
-        @token = Auth.issue(@user)
+        @token = Auth.issue(user_id: @user.id)
+        @source = create(:source)
+        @user.sources << @source
+        @user.save
 
         params = {
           user: {
-            email: 'greg@gmail.com',
-            password: 'password1',
-            passwordConfirm: 'password1'
+            sources: ["al-jazeera", "new-york-times"]
           }
         }
 
@@ -133,7 +134,15 @@ RSpec.describe "Users", type: :request do
         @response = response
       end
 
-      it "updates the user's sources"
+      it "updates the user's sources" do
+        
+        new_source = Source.find_by(name: "al-jazeera")
+        expect(@response.status).to eq(201)
+        expect(@user.source_ids.size).to eq(2)
+        expect(@user.source_ids).to include("al-jazeera")
+        expect(@user.sources).to include(new_source)
+
+      end
 
       it "creates a new source if one does not already exist"
 
