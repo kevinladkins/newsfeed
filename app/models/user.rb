@@ -11,4 +11,16 @@ class User < ApplicationRecord
   def source_ids
     self.sources.map {|source| source.name}
   end
+
+  def sources=(source_names)
+    self.sources.destroy_all
+    source_names.each do |name|
+      if Source.find_by(name: name)
+        self.sources << Source.find_by(name: name)
+      else
+        self.sources.create(name: name)
+      end
+    end
+  end
+
 end
