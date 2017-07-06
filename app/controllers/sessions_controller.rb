@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
       render json: {errors: {email: ["user not found"]}},
       status: 500
     elsif @user && @user.authenticate(user_params[:password])
-      jwt = Auth.issue({user: @user.id})
+      jwt = Auth.issue({user_id: @user.id})
       render json: {user: {id: @user.id, email: @user.email}, sources: @user.source_ids, token: jwt}
     else
       render json: {errors: {password: ["password does not match provided email"]}},

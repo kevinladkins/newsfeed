@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      jwt = Auth.issue({user: @user.id})
+      jwt = Auth.issue({user_id: @user.id})
       render json: {user: {id: @user.id, email: @user.email}, sources: @user.source_ids, token: jwt}
     else
       render json: {errors: @user.errors},
@@ -16,6 +16,10 @@ class UsersController < ApplicationController
   def show
     user = User.find(params[:id])
     render json: {user: user, sources: user.source_ids}
+  end
+
+  def update
+
   end
 
 
