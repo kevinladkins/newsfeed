@@ -1,7 +1,7 @@
 import {login} from '../api/sessionsApi'
 import {updateSources} from './sourcesActions'
 
-export function loginUser(userDetails, history) {
+export function loginUser(userDetails) {
   return function(dispatch) {
     return login(userDetails).then(response => {
         if (response.token) {
