@@ -14,11 +14,12 @@ export function getSources() {
      }
   }
 
-  export function updateSources(selectedSources) {
+  export function updateSources(selectedSources, history) {
      return function(dispatch) {
        dispatch({
          type: 'EDIT_SOURCES',
          payload: selectedSources
-       })
+       });
+       history.push("/newsfeed")
      }
   }

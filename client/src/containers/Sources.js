@@ -34,8 +34,7 @@ class Sources extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.actions.updateSources([...this.selectedSources])
-    this.props.history.push("/newsfeed")
+    this.props.actions.updateSources([...this.selectedSources], this.props.history)
   }
 
 
