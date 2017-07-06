@@ -117,9 +117,10 @@ RSpec.describe "Users", type: :request do
       before(:each) do
         @user = create(:user)
         @token = Auth.issue(user_id: @user.id)
-        @source = create(:source)
-        @user.sources << @source
-        @user.save
+
+      end
+
+      it "updates the user's sources" do
 
         params = {
           user: {
@@ -131,24 +132,37 @@ RSpec.describe "Users", type: :request do
           params: params.to_json,
           headers: {'Content-Type': 'application/json', 'AUTHORIZATION': "Bearer: #{@token}" }
 
-        @response = response
-      end
-
-      it "updates the user's sources" do
-        
         new_source = Source.find_by(name: "al-jazeera")
-        expect(@response.status).to eq(201)
-        expect(@user.source_ids.size).to eq(2)
+
+        expect(response.status).to eq(201)
         expect(@user.source_ids).to include("al-jazeera")
         expect(@user.sources).to include(new_source)
 
       end
 
-      it "creates a new source if one does not already exist"
 
-      it "adds an existing source if one does exist"
+      it "removes sources not included in the put request" do
+        source = create(:source)
+        @user.sources << source
 
-      it "removes sources not included in the put request"
+        params = {
+          user: {
+            sources: ["al-jazeera", "new-york-times"]
+          }
+        }
+
+        put "/users/#{@user.id}",
+          params: params.to_json,
+          headers: {'Content-Type': 'application/json', 'AUTHORIZATION': "Bearer: #{@token}" }
+
+        expect(response.status).to eq(201)
+        expect(@user.source_ids).not_to include("abc-news")
+        expect(@user.sources).not_to include(source)
+
+
+      end
+
+
 
     end
 

@@ -25,6 +25,7 @@ class UsersController < ApplicationController
       render json: {errors: {email: ["user not found"]}},
       status: 403
     else
+      user.update(user_params)
       head 201
     end
   end
