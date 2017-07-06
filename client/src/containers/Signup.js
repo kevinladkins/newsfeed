@@ -1,4 +1,9 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {history} from 'react-router-dom'
+
+import * as userActions from '../actions/usersActions'
 
 class Signup extends Component {
   constructor(props) {
@@ -24,6 +29,7 @@ class Signup extends Component {
     event.preventDefault();
     if (this.state.password === this.state.passwordConfirm) {
       alert("Success")
+      this.props.actions.createUser(this.state)
     } else {
       alert("Failure")
     }
@@ -53,4 +59,10 @@ class Signup extends Component {
   }
 }
 
-export default Signup
+function mapDispatchToProps(dispatch) {
+  return {actions:
+    bindActionCreators(userActions, dispatch)
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Signup)
