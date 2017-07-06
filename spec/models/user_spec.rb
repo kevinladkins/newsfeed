@@ -4,6 +4,14 @@ RSpec.describe User, type: :model do
 
   describe "create new user" do
 
+     it "creates a new user with a password and valid email" do
+       user = build(:user)
+       user.save
+
+       expect(user.valid?).to be(true)
+       expect(user.id).not_to be(nil)
+     end
+
      it "requires an email" do
       user = User.new(password: 'password')
       user.save
