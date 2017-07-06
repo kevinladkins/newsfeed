@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Sessions", type: :request do
+RSpec.describe "Users", type: :request do
 
   describe "POST /users" do
 
@@ -29,10 +29,15 @@ RSpec.describe "Sessions", type: :request do
          expect(@response.status).to eq(200)
          expect(body['user']['email']).to eq('greg@gmail.com')
          expect(body['user']['id']).not_to eq(nil)
+         expect(body['sources']).to eq([])
 
       end
 
-      it "returns a user id and JWT token"
+      it "returns a JWT token" do
+        body = JSON.parse(@response.body)
+
+        expect(body['token']).not_to eq(nil)
+      end
 
     end
 
