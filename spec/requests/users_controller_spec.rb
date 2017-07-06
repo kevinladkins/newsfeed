@@ -110,6 +110,39 @@ RSpec.describe "Users", type: :request do
     end
   end
 
+  describe "PUT /users" do
 
+    describe "on success" do
+
+      before(:each) do
+        @user = create(:user)
+        @token = Auth.issue(@user)
+
+        params = {
+          user: {
+            email: 'greg@gmail.com',
+            password: 'password1',
+            passwordConfirm: 'password1'
+          }
+        }
+
+        put "/users/#{@user.id}",
+          params: params.to_json,
+          headers: {'Content-Type': 'application/json', 'AUTHORIZATION': "Bearer: #{@token}" }
+
+        @response = response
+      end
+
+      it "updates the user's sources"
+
+      it "creates a new source if one does not already exist"
+
+      it "adds an existing source if one does exist"
+
+      it "removes sources not included in the put request"
+
+    end
+
+  end
 
 end
