@@ -43,9 +43,68 @@ RSpec.describe "Users", type: :request do
 
     describe "on failure" do
 
-      it "does not create a new user without a valid email and password"
+      it "does not create a new user without a valid email" do
+        params = {
+          user: {
+            email: 'gregatgmail.com',
+            password: 'password1',
+            passwordConfirm: 'password1'
+          }
+        }
 
-      it "does not create a new user if one already exists"
+        post "/users",
+          params: params.to_json,
+          headers: { 'Content-Type': 'application/json' }
+
+        body = JSON.parse(response.body)
+
+        expect(response.status).to eq(500)
+        expect(body['errors']['email']).to eq(["is invalid"])
+
+      end
+
+      it "requires an email and a password" do
+
+          params = {
+            user: {
+              email: '',
+              password: '',
+              passwordConfirm: ''
+            }
+          }
+
+          post "/users",
+            params: params.to_json,
+            headers: { 'Content-Type': 'application/json' }
+
+          body = JSON.parse(response.body)
+
+          expect(response.status).to eq(500)
+          expect(body['errors']).to eq({"password"=>["can't be blank"], "email"=>["can't be blank", "is invalid"]})
+
+        end
+
+
+      it "does not create a new user if one already exists" do
+        create(:user)
+        params = {
+          user: {
+            email: 'kevina@cciny.net',
+            password: 'password1',
+            passwordConfirm: 'password1'
+          }
+        }
+
+        post "/users",
+          params: params.to_json,
+          headers: { 'Content-Type': 'application/json' }
+
+        body = JSON.parse(response.body)
+
+        expect(response.status).to eq(500)
+        expect(body['errors']).to eq({"email"=>["has already been taken"]})
+
+      end
 
 
     end
