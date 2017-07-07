@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = User.find(params[:id])
+    user = User.find_by(id: params[:id])
     if current_user != user
       render json: {errors: {email: ["user not found"]}},
       status: 403
