@@ -1,16 +1,11 @@
-const channels = [
-  {
-   source_id: "abc-news-au",
-   name:  "ABC News (AU)",
-  },
-  {
-   source_id: "al-jazeera-english",
-   name: "Al Jazeera English",
-  },
-]
+
 
 export default {
   sources: [],
-  channels: channels,
-  articles: []
+  articles: [],
+  auth: {
+      isAuthenticated: false,
+      isAuthenticating: true,
+      user_id: ''
+  }
 }
