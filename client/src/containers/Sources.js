@@ -34,7 +34,7 @@ class Sources extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.actions.updateSources([...this.selectedSources], this.props.history)
+    this.props.actions.updateSources([...this.selectedSources], this.props.history, this.props.auth.user_id)
   }
 
 
@@ -66,7 +66,10 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-  return {sources: state.sources}
+  return {
+    sources: state.sources,
+    auth: state.auth
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sources)

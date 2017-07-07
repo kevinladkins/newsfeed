@@ -1,4 +1,4 @@
-import {fetchSources} from '../api/SourcesApi'
+import {fetchSources, saveSources} from '../api/SourcesApi'
 
 export function getSources() {
   return function(dispatch) {
@@ -14,8 +14,9 @@ export function getSources() {
      }
   }
 
-  export function updateSources(selectedSources, history) {
+  export function updateSources(selectedSources, history, user_id) {
      return function(dispatch) {
+       saveSources(user_id, selectedSources);
        dispatch({
          type: 'EDIT_SOURCES',
          payload: selectedSources
