@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 import sources from './sourcesReducer';
 import articles from './articlesReducer';
-import auth from '.authReducer';
+import auth from './authReducer';
 
 
 
