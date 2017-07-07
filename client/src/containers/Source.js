@@ -7,7 +7,6 @@ class Source extends Component {
     this.state = {
       selected: props.source.selected
     }
-    this.clickCheckbox = this.clickCheckbox.bind(this)
     this.setStyle = this.setStyle.bind(this)
     this.clickDiv = this.clickDiv.bind(this)
   }
@@ -20,7 +19,7 @@ class Source extends Component {
     }
   }
 
-  clickCheckbox() {
+  clickDiv() {
     this.state.selected === true ?
       this.setState({
         selected: false
@@ -42,9 +41,7 @@ class Source extends Component {
     }
   }
 
-  clickDiv() {
-    document.getElementById(this.props.source.id).click();
-  }
+
 
   render() {
     var style = {background: 'yellow'}
@@ -52,7 +49,6 @@ class Source extends Component {
       <div className="source" onClick={this.clickDiv} style={this.setStyle()}>
         <h3>{this.props.source.name}</h3>
         <p>{this.props.source.description}</p>
-        <input type="checkbox"  id={this.props.source.id} name={this.props.source.name} value={this.props.source.id} checked={this.state.selected} className="hidden" onChange={this.clickCheckbox}/>
       </div>
     )
   }

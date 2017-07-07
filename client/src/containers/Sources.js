@@ -12,7 +12,6 @@ class Sources extends Component {
   constructor(props) {
     super();
     this.saveSources = this.saveSources.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentWillMount() {
@@ -28,15 +27,10 @@ class Sources extends Component {
    }
 
 
-  saveSources() {
-    document.getElementById("submit-button").click()
-  }
-
-  handleSubmit(event) {
+  saveSources(event) {
     event.preventDefault();
     this.props.actions.updateSources([...this.selectedSources], this.props.history, this.props.auth.user_id)
   }
-
 
   render() {
     const sourcesList = this.props.sources.map((source, index) =>
@@ -50,10 +44,9 @@ class Sources extends Component {
           <h2>Select sources for your newsfeed:</h2>
           <button className="save-button" onClick={this.saveSources}>Save</button>
         </div>
-        <form id="sources-form" onSubmit={event => this.handleSubmit(event)}>
-          <input type="submit" className="hidden" id="submit-button"/>
+        <div id="sources-form" >
           {sourcesList}
-        </form>
+        </div>
       </div>
     )
   }
