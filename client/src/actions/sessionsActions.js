@@ -1,5 +1,6 @@
 import {login} from '../api/sessionsApi'
 import {updateSources} from './sourcesActions'
+import Auth from '../auth/authenticator.js'
 
 export function loginUser(userDetails, history) {
   return function(dispatch) {
@@ -19,4 +20,14 @@ export function loginUser(userDetails, history) {
         throw(error);
       });
   }
+}
+
+export function logOutUser() {
+  return function(dispatch) {
+    Auth.logOut()
+    dispatch(
+      { type: 'LOG_OUT'}
+    )
+  }
+
 }
