@@ -28,8 +28,7 @@ class Signup extends Component {
   handleSubmit(event) {
     event.preventDefault();
     if (this.state.password === this.state.passwordConfirm) {
-      alert("Success")
-      this.props.actions.createUser(this.state)
+      this.props.actions.createUser(this.state, this.props.history)
     } else {
       alert("Failure")
     }
