@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def update
     user = User.find_by(id: params[:id])
     if current_user != user
-      render json: {errors: {email: ["user not found"]}},
+      render json: {errors: {message: ["you are not authorized to view this page"]}},
       status: 403
     else
       user.update(user_params)
