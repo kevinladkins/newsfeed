@@ -5,7 +5,7 @@ export default {
   articles: [],
   auth: {
       isAuthenticated: false,
-      isAuthenticating: true,
+      isAuthenticating: false,
       user_id: ''
   }
 }
