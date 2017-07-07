@@ -20,7 +20,8 @@ export default function articlesReducer(state = initialState.articles, action) {
       } else {
         return [...state, action.payload];
       }
-
+    case 'LOG_OUT':
+       return initialState.articles
     default:
       return state
   }

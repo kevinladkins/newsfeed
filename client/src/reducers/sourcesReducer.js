@@ -7,13 +7,18 @@ export default function sourcesReducer(state = initialState.sources, action) {
         {...source, selected: false, source_id: source.id}
       ));
     case 'EDIT_SOURCES':
-      const newState = state.map(source => {
+      var newState = state.map(source => {
         if (action.payload.includes(source.id)) {
           return Object.assign({}, source, {selected: true})
         } else {
           return Object.assign({}, source, {selected: false})
         }
-      })
+      });
+      return newState
+    case 'LOG_OUT':
+      var newState = state.map(source => {
+        return Object.assign({}, source, {selected: false})
+      });
       return newState
     default:
       return state;
