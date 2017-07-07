@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 import {Switch, Route} from 'react-router-dom'
 
-import ArticleCard from './ArticleCard'
-import Article from './Article'
+import ArticleCard from '../components/ArticleCard'
+import ArticleShow from '../components/ArticleShow'
 import '../styles/card.css'
 import Card from '../components/Card'
 import * as channelsActions from '../actions/channelsActions'
@@ -44,9 +44,9 @@ class Channel extends Component {
         <ArticleCard article={article} channel={this.props.channel} key={index} />
     ))
 
-    const MyArticle = (props) => {
+    const ArticleWithProps = (props) => {
       return (
-        <Article
+        <ArticleShow
           channelName={this.name}
           {...props}
         />
@@ -57,7 +57,7 @@ class Channel extends Component {
     <Switch>
       <Route exact path={this.props.match.url} render = {() => <div>
         <h1>{this.name}</h1>  {articles}  </div>}/>
-      <Route path={`${this.props.match.url}/:article`} render={MyArticle} />
+      <Route path={`${this.props.match.url}/:article`} render={ArticleWithProps} />
     </Switch>
    )}
 }

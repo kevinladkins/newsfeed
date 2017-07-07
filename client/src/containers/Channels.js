@@ -1,19 +1,30 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
 import ChannelCard from './ChannelCard'
 
 
 class Channels extends Component {
+
   render() {
-    var channels = this.props.channels.map((channel, index) => {
+    const channels = this.props.sources.filter((source) => !!source.selected)
+    const selectedChannels = channels.map((channel, index) => {
        return (
        <ChannelCard channel={channel} key={index}/>
        )
     })
     return (
-      <div>{channels}</div>
+      <div>{selectedChannels}</div>
     )
   }
 }
 
-export default Channels
+
+const mapStateToProps = (state) => {
+  return {
+    sources: state.sources
+  }
+}
+
+export default connect(mapStateToProps)(Channels)

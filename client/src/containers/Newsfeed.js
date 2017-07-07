@@ -8,19 +8,8 @@ import Channel from './Channel'
 
 class Newsfeed extends Component {
 
-
-
   render() {
     const channels = this.props.sources.filter((source) => !!source.selected)
-
-    const MyChannels = (props) => {
-      return (
-        <Channels
-          channels={channels}
-          {...props}
-        />
-      );
-    }
 
     if (channels.length == 0) {
       return (
@@ -29,7 +18,7 @@ class Newsfeed extends Component {
     } else {
       return(
         <Switch>
-          <Route exact path={this.props.match.url} render={MyChannels} />
+          <Route exact path={this.props.match.url} component={Channels} />
           <Route path ={`${this.props.match.url}/:ChannelId`} component={Channel} />
         </Switch>
       )
