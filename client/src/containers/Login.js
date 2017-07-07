@@ -34,6 +34,7 @@ class Login extends Component {
   }
 
   render() {
+    debugger
     return (
       <form onSubmit={this.handleSubmit}>
         <label>Email: </label>

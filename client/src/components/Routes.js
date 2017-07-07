@@ -1,10 +1,11 @@
 import React from 'react'
 import {Route, Switch} from 'react-router-dom'
 
-import Home from './Home'
+import Home from '../containers/Home'
 import Signup from '../containers/Signup'
 import Newsfeed from '../containers/Newsfeed'
 import Sources from '../containers/Sources'
+
 
 
 const Routes = () =>
