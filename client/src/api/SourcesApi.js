@@ -13,7 +13,10 @@ const headers = {
 
 export function saveSources(user_id, source_ids) {
   return fetch(`/users/${user_id}`, {method: 'PUT',
-  headers: headers,
+  headers: {
+    'Content-Type': 'application/json',
+    'AUTHORIZATION': `Bearer: ${sessionStorage.jwt}`
+  },
   body: JSON.stringify({user:
       {sources: source_ids}
     })
