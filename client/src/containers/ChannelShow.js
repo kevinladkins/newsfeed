@@ -1,13 +1,10 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux'
 import {Switch, Route} from 'react-router-dom'
 
 import ArticleCard from '../components/ArticleCard'
 import ArticleShow from '../components/ArticleShow'
 import '../styles/card.css'
-import Card from '../components/Card'
-import * as channelsActions from '../actions/channelsActions'
 
 class ChannelShow extends Component {
   constructor(props) {
