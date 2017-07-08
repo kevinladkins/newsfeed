@@ -4,11 +4,16 @@ import {bindActionCreators} from 'redux'
 import {Switch, Route} from 'react-router-dom';
 
 import ChannelShow from './ChannelShow'
-import ChannelIndexView from './ChannelIndexView'
+import ChannelIndexView from '../components/ChannelIndexView'
 import * as channelsActions from '../actions/channelsActions'
 
 
 class Newsfeed extends Component {
+  constructor(props) {
+    super();
+    this.setArticles = this.setArticles.bind(this)
+    this.channels = this.channels.bind(this)
+  }
 
 
   componentWillMount() {
@@ -29,7 +34,6 @@ class Newsfeed extends Component {
     })
 
   }
-
 
   channels() {
     return this.props.sources.filter((source) => !!source.selected)
