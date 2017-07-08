@@ -20,18 +20,11 @@ class Source extends Component {
   }
 
   clickDiv() {
-    this.state.selected === true ?
       this.setState({
-        selected: false
+        selected: !this.state.selected
       })
-       :
-        this.setState({
-          selected: true
-        })
       this.props.toggleSource(this.props.source.id)
     }
-
-
 
   setStyle() {
     if (this.state.selected === true) {
@@ -42,9 +35,7 @@ class Source extends Component {
   }
 
 
-
   render() {
-    var style = {background: 'yellow'}
     return(
       <div className="source" onClick={this.clickDiv} style={this.setStyle()}>
         <h3>{this.props.source.name}</h3>
