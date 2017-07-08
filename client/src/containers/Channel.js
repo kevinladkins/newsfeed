@@ -39,6 +39,8 @@ class Channel extends Component {
     })
   }
 
+
+
   render() {
     const articles = this.state.articles.map((article, index) => (
         <ArticleCard article={article} channel={this.props.channel} key={index} />
