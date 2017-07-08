@@ -13,7 +13,7 @@ class App extends Component {
       <Router>
         <div className="App">
             <Header />
-            <Navbar />
+            <Navbar history={this.props.history}/>
             <Routes />
         </div>
       </Router>

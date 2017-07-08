@@ -13,6 +13,10 @@ class Newsfeed extends Component {
   }
 
   render() {
+    if(!this.props.auth.isAuthenticated) {
+      this.props.history.push('/')
+    }
+
     const selectedChannels = this.channels().map((channel, index) => {
        return (
        <ChannelIndexView channel={channel} key={index}/>
@@ -30,7 +34,8 @@ class Newsfeed extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    sources: state.sources
+    sources: state.sources,
+    auth: state.auth
   }
 }
 
