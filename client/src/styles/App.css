@@ -1,16 +1,16 @@
 * {
-  background-color: gray;
+  background-color: #a3a3c2;
 }
 
 
 .App {
   text-align: center;
-  background-color: gray;
-  color: white;
+  background-color: #a3a3c2;
+  color: #f2f2f2;
 }
 
 .App-header {
-  background-color: gray;
+  background-color: transparent;
   height: 150px;
   padding: 10px;
   color: white;
@@ -20,6 +20,7 @@
   font-size: 5em;
   font-family: Arial;
   font-weight: 100;
+  color: #ffe6cc;
 }
 
 .App-intro {
@@ -43,4 +44,15 @@
 
 .hidden {
   display: none;
+}
+
+a {
+  text-decoration: none;
+  background-color: transparent;
+  color: #ffe6cc;
+}
+
+a:hover {
+  color: black;
+  background-color: white;
 }

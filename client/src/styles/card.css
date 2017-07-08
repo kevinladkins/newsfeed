@@ -15,26 +15,26 @@
   overflow: scroll;
   border: 1px solid black;
   margin: 1%;
-  background-color: white;
+  background-color: #fff2e6;
   border-radius: 10px;
   padding: 3px;
   color: black;
 }
 
 .card h2 {
-  background: white;
+  background: transparent;
   padding: 5px;
 }
 
 .card a {
   text-decoration: none;
-  background: white;
+  background: transparent;
   color: black;
 }
 
 .card a:hover {
-  color: gray;
-  background: white;
+  color: #a3a3c2;
+  background: transparent;
 }
 
 .card-content {
@@ -43,8 +43,8 @@
 }
 
 .card-content a:hover {
-  color: gray;
-  background: white;
+  color: #a3a3c2;
+  background: transparent;
 }
 
 .article-title {

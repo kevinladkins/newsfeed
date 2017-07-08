@@ -28,7 +28,7 @@ class Source extends Component {
 
   setStyle() {
     if (this.state.selected === true) {
-      return {background: 'yellow'}
+      return {background: '#ffe6cc'}
     } else {
       return {background: 'white'}
     }
