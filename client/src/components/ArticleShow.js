@@ -1,12 +1,14 @@
 import React from 'react'
 import {connect} from 'react-redux';
 
+import BackButton from './BackButton'
 
-const Article = ({article, channelName, handleClick}) => {
+
+const Article = ({article, channelName}) => {
   return (
     <div>
       <h1>{article.title}</h1>
-      <p onClick={handleClick}> &lt; &lt; Back</p>
+      <BackButton />
       <img src={article.urlToImage} className="image"/>
       <h5>Posted at: {article.publishedAt}</h5>
       <p>{article.description}</p>
