@@ -37,13 +37,18 @@ div.source:hover {
   width: 30%;
   length: 100%;
   text-align: left;
-  padding: 5px;
 }
 
+.sources h2 {
+  padding-left: 2em;
+}
 
+.sources p {
+  padding-left: 3em;
+}
 
 .save-button {
-  display: inline-block;
-  background-color: white;
-  size: 200%;
+  margin-left: 4em;
+  background: white;
+  color: black;
 }
