@@ -1,7 +1,7 @@
 #sources-form {
   display: inline-block;
   float: right;
-  width: 45%;
+  width: 65%;
   height: 500px;
   overflow: scroll;
   border: 1px solid black;
@@ -34,8 +34,10 @@ div.source:hover {
 .sources {
   display: inline-block;
   float: left;
-  width: 45%;
+  width: 30%;
   length: 100%;
+  text-align: left;
+  padding: 5px;
 }
 
 
@@ -43,4 +45,5 @@ div.source:hover {
 .save-button {
   display: inline-block;
   background-color: white;
+  size: 200%;
 }
