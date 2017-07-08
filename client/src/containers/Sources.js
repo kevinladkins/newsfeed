@@ -33,6 +33,10 @@ class Sources extends Component {
   }
 
   render() {
+    if(!this.props.auth.isAuthenticated) {
+      this.props.history.push('/')
+    }
+
     const sourcesList = this.props.sources.map((source, index) =>
           <Source source={source} key={index} toggleSource={this.toggleSource} handleChange={this.handleChange} />
     );
