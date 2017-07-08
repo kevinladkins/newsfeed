@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import {Switch, Route} from 'react-router-dom';
 
 import Channel from './Channel'
@@ -9,9 +8,12 @@ import ChannelCard from './ChannelCard'
 
 class Channels extends Component {
 
+  channels() {
+    return this.props.sources.filter((source) => !!source.selected)
+  }
+
   render() {
-    const channels = this.props.sources.filter((source) => !!source.selected)
-    const selectedChannels = channels.map((channel, index) => {
+    const selectedChannels = this.channels().map((channel, index) => {
        return (
        <ChannelCard channel={channel} key={index}/>
        )
