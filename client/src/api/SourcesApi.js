@@ -1,9 +1,9 @@
 export function fetchSources() {
   return fetch('https://newsapi.org/v1/sources?language=en&country=us')
-  .then(res => {
-    return res.json()
-    }
-  )
+  .then(res => {return res.json()})
+  .catch(error => {
+   throw(error);
+  });
 }
 
 const headers = {
@@ -21,4 +21,7 @@ export function saveSources(user_id, source_ids) {
       {sources: source_ids}
     })
   }).then(response => response.json())
+  .catch(error => {
+   throw(error);
+  });
 }
