@@ -42,7 +42,7 @@ class Newsfeed extends Component {
 
     const selectedChannels = this.channels().map((channel, index) => {
        return (
-       <ChannelIndexView channel={channel} key={index}/>
+       <ChannelIndexView channel={channel} key={index} articles={this.props.articles}/>
        )
     })
     return (
@@ -58,7 +58,8 @@ class Newsfeed extends Component {
 const mapStateToProps = (state) => {
   return {
     sources: state.sources,
-    auth: state.auth
+    auth: state.auth,
+    articles: state.articles
   }
 }
 
