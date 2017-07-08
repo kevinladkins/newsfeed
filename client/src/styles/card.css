@@ -1,15 +1,15 @@
+
 .image {
   height: 200px;
   length: 200px;
   border: 1px solid black;
 }
 
-.large-text {
-  font-size: 1.5em;
-}
+
 
 .card {
   display: inline-block;
+  font-family: 'Open Sans', sans-serif;
   width: 45%;
   height: 300px;
   overflow: scroll;
@@ -23,13 +23,20 @@
 
 .card h2 {
   background: transparent;
+  font-family: 'Open Sans', sans-serif;
   padding: 5px;
 }
 
 .card a {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   text-decoration: none;
   background: transparent;
   color: black;
+}
+
+.card-title {
+  font-family: 'Open Sans', sans-serif;
 }
 
 .card a:hover {
@@ -39,8 +46,18 @@
 
 .card-content {
   background-color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   overflow: scroll;
 }
+
+.card-content a {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  background: transparent;
+
+}
+
 
 .card-content a:hover {
   color: #a3a3c2;

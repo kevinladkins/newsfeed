@@ -5,6 +5,7 @@ import {Switch, Route} from 'react-router-dom';
 
 import ChannelShow from './ChannelShow'
 import ChannelIndexView from '../components/ChannelIndexView'
+import '../styles/App.css'
 import * as channelsActions from '../actions/channelsActions'
 
 
