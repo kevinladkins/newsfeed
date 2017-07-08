@@ -37,9 +37,12 @@ class ChannelShow extends Component {
         articles: response
       })
     })
+    this.handleClick = this.handleClick.bind(this)
   }
 
-
+  handleClick() {
+    this.props.history.goBack()
+  }
 
   render() {
     const articles = this.state.articles.map((article, index) => (
@@ -50,15 +53,22 @@ class ChannelShow extends Component {
       return (
         <ArticleShow
           channelName={this.name}
+          handleClick={this.handleClick}
           {...props}
         />
       );
   }
 
+
+
   return (
     <Switch>
-      <Route exact path={this.props.match.url} render = {() => <div>
-        <h1>{this.name}</h1>  {articles}  </div>}/>
+      <Route exact path={this.props.match.url} render = {() =>
+        <div>
+          <h1>{this.name}</h1>
+          <p onClick={this.handleClick}> &lt; &lt; Back</p>
+          {articles}
+        </div>}/>
       <Route path={`${this.props.match.url}/:article`} render={ArticleWithProps} />
     </Switch>
    )}

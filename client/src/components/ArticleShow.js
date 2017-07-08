@@ -2,10 +2,11 @@ import React from 'react'
 import {connect} from 'react-redux';
 
 
-const Article = ({article, channelName}) => {
+const Article = ({article, channelName, handleClick}) => {
   return (
     <div>
       <h1>{article.title}</h1>
+      <p onClick={handleClick}> &lt; &lt; Back</p>
       <img src={article.urlToImage} className="image"/>
       <h5>Posted at: {article.publishedAt}</h5>
       <p>{article.description}</p>
