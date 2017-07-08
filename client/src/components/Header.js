@@ -1,4 +1,5 @@
 import React from 'react'
+import Navbar from '../containers/Navbar'
 
 const Header = () =>
   <div className="App-header">

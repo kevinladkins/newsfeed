@@ -2,7 +2,7 @@
   display: inline-block;
   float: right;
   width: 65%;
-  height: 500px;
+  height:100vh;
   overflow: scroll;
   border: 1px solid black;
   padding: 10px;
