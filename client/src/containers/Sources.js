@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 
 import * as sourcesActions from '../actions/sourcesActions';
+import SourcesIndex from '../components/SourcesIndex'
 import Source from './Source'
 import '../styles/Sources.css'
 
@@ -26,7 +27,6 @@ class Sources extends Component {
      }
    }
 
-
   saveSources(event) {
     event.preventDefault();
     this.props.actions.updateSources([...this.selectedSources], this.props.history, this.props.auth.user_id)
@@ -43,15 +43,7 @@ class Sources extends Component {
 
 
     return (
-      <div className="sources-container">
-        <div className="sources">
-          <h2>Select sources for your newsfeed:</h2>
-          <button className="save-button" onClick={this.saveSources}>Save</button>
-        </div>
-        <div id="sources-form" >
-          {sourcesList}
-        </div>
-      </div>
+      <SourcesIndex sourcesList={sourcesList} saveSources={this.saveSources} />
     )
   }
 }
