@@ -1,12 +1,35 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux'
 import {Switch, Route} from 'react-router-dom';
 
 import ChannelShow from './ChannelShow'
 import ChannelIndexView from './ChannelIndexView'
+import * as channelsActions from '../actions/channelsActions'
 
 
 class Newsfeed extends Component {
+
+
+  componentWillMount() {
+    this.setArticles()
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(this.setArticles, 60000)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval)
+  }
+
+  setArticles() {
+    this.channels().forEach(channel => {
+      this.props.actions.getArticles(channel)
+    })
+
+  }
+
 
   channels() {
     return this.props.sources.filter((source) => !!source.selected)
@@ -39,4 +62,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Newsfeed)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(channelsActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Newsfeed)
