@@ -4,19 +4,17 @@ import {Switch, Route} from 'react-router-dom'
 
 import ArticleCard from '../components/ArticleCard'
 import ArticleShow from '../components/ArticleShow'
+import BackButton from '../components/BackButton'
 import '../styles/card.css'
 
 class ChannelShow extends Component {
   constructor(props) {
     super();
-    this.handleClick = this.handleClick.bind(this)
     this.name = props.channel.name
   }
 
 
-  handleClick() {
-    this.props.history.goBack()
-  }
+
 
   render() {
     var channelArticles = this.props.articles.find(articleObject => articleObject.name === this.props.channel.name);
@@ -32,7 +30,6 @@ class ChannelShow extends Component {
       return (
         <ArticleShow
           channelName={this.name}
-          handleClick={this.handleClick}
           {...props}
         />
       );
@@ -44,7 +41,7 @@ class ChannelShow extends Component {
       <Route exact path={this.props.match.url} render = {() =>
         <div>
           <h1>{this.name}</h1>
-          <p onClick={this.handleClick}> &lt; &lt; Back</p>
+          <BackButton />
           {channelArticles}
         </div>}/>
       <Route path={`${this.props.match.url}/:article`} render={ArticleWithProps} />
