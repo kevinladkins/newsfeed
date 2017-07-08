@@ -27,12 +27,8 @@ class Navbar extends Component {
         <nav className="navbar">
             <NavLink
               className="navlink"
-              to="/newsfeed"
-            >Newsfeed</NavLink>
-            <NavLink
-              className="navlink"
               to="/sources"
-            >Sources</NavLink>
+            >Add Channels</NavLink>
             <a href="#"
               className="navlink"
               onClick={(e) => {this.logout(e)}}
