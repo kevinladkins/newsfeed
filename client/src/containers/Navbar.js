@@ -28,7 +28,7 @@ class Navbar extends Component {
             <NavLink
               className="navlink"
               to="/newsfeed"
-            >Home</NavLink>
+            >Newsfeed</NavLink>
             <NavLink
               className="navlink"
               to="/sources"
@@ -45,11 +45,11 @@ class Navbar extends Component {
             <NavLink
               className="navlink"
               to="/"
-            >Home</NavLink>
+            >Login</NavLink>
             <NavLink
               className="navlink"
-              to="/sources"
-            >Sources</NavLink>
+              to="/signup"
+            >Sign Up</NavLink>
         </nav>
       )
     }
