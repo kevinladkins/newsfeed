@@ -7,7 +7,7 @@ import {bindActionCreators} from 'redux'
 
 import * as channelsActions from '../actions/channelsActions'
 
-class ChannelCard extends Component {
+class ChannelIndexView extends Component {
   constructor(props) {
     super();
     this.state = {
@@ -71,4 +71,4 @@ const mapStateToProps = (state) => {
   return {articles: state.articles}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChannelCard)
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelIndexView)

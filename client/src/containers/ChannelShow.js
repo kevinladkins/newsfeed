@@ -9,7 +9,7 @@ import '../styles/card.css'
 import Card from '../components/Card'
 import * as channelsActions from '../actions/channelsActions'
 
-class Channel extends Component {
+class ChannelShow extends Component {
   constructor(props) {
     super();
     this.state = {
@@ -86,4 +86,4 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Channel)
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelShow)

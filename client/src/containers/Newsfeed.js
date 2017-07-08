@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import {Switch, Route} from 'react-router-dom';
 
-import Channel from './Channel'
-import ChannelCard from './ChannelCard'
+import ChannelShow from './ChannelShow'
+import ChannelIndexView from './ChannelIndexView'
 
 
 class Newsfeed extends Component {
@@ -15,13 +15,13 @@ class Newsfeed extends Component {
   render() {
     const selectedChannels = this.channels().map((channel, index) => {
        return (
-       <ChannelCard channel={channel} key={index}/>
+       <ChannelIndexView channel={channel} key={index}/>
        )
     })
     return (
       <Switch>
         <Route exact path={this.props.match.url} render={()=> <div>{selectedChannels}</div>}/>
-        <Route path ={`${this.props.match.url}/:ChannelId`} component={Channel} />
+        <Route path ={`${this.props.match.url}/:ChannelId`} component={ChannelShow} />
       </Switch>
     )
   }
