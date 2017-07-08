@@ -13,10 +13,9 @@ class App extends Component {
       <Router>
         <div className="App">
             <Header />
-            <Navbar history={this.props.history}/>
-            <div className="body">
-              <Routes />
-            </div>
+            <Navbar />
+            <Routes />
+
         </div>
       </Router>
     );

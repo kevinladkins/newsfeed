@@ -18,6 +18,7 @@ h1, h2, h3 {
   height: 150px;
   padding: 10px;
   color: white;
+  width: 100%;
 }
 
 .App-header h1 {
@@ -32,18 +33,13 @@ h1, h2, h3 {
 }
 
 
-.head {
-  top: 0;
-  width: 100%;
-  margin: auto;
-  z-index: 1;
-  position: fixed;
-}
 
 .body {
   display: inline-block;
   height:100vh;
   overflow: scroll;
+  width: 100%;
+  clear: both;
 }
 
 .hidden {
