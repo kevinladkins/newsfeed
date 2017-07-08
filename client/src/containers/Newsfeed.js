@@ -6,7 +6,7 @@ import Channel from './Channel'
 import ChannelCard from './ChannelCard'
 
 
-class Channels extends Component {
+class Newsfeed extends Component {
 
   channels() {
     return this.props.sources.filter((source) => !!source.selected)
@@ -34,4 +34,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Channels)
+export default connect(mapStateToProps)(Newsfeed)

@@ -4,7 +4,7 @@ import {Route, Switch} from 'react-router-dom'
 import Home from './Home'
 import Signup from '../containers/Signup'
 import Sources from '../containers/Sources'
-import Channels from '../containers/Channels'
+import Newsfeed from '../containers/Newsfeed'
 
 
 
@@ -13,7 +13,7 @@ const Routes = () =>
         <Route exact path='/' component={Home}/>
         <Route exact path='/sources' component={Sources} />
         <Route exact path='/signup' component={Signup} />
-        <Route path='/newsfeed' component={Channels} />
+        <Route path='/newsfeed' component={Newsfeed} />
       </Switch>
 
 
