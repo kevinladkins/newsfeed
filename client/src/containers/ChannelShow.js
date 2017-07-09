@@ -2,46 +2,39 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import {Switch, Route} from 'react-router-dom'
 
-import ArticleCard from '../components/ArticleCard'
 import ArticleShow from '../components/ArticleShow'
 import ArticlesIndex from '../components/ArticlesIndex'
 import BackButton from '../components/BackButton'
-import '../styles/card.css'
 
-class ChannelShow extends Component {
-  constructor(props) {
-    super();
-    this.name = props.channel.name
+
+
+
+const ChannelShow = ({match, articles, channel}) => {
+
+  var channelArticles = articles.find(articleObject => articleObject.name === channel.name);
+
+  const IndexWithProps = (props) => {
+     return (
+       <ArticlesIndex
+         channelArticles ={channelArticles}
+         channel={channel.name}
+         {...props}
+      />);
+   }
+
+  const ArticleWithProps = (props) => {
+    return (
+      <ArticleShow
+        channelName={channel.name}
+        {...props}
+      />);
   }
-
-  render() {
-    var channelArticles = this.props.articles.find(articleObject => articleObject.name === this.props.channel.name);
-
-    const IndexWithProps = (props) => {
-       return (
-         <ArticlesIndex
-           channelArticles ={channelArticles}
-           channel={this.name}
-           {...props}
-        />
-       )
-     }
-
-    const ArticleWithProps = (props) => {
-      return (
-        <ArticleShow
-          channelName={this.name}
-          {...props}
-        />
-      );
-  }
-
   return (
     <Switch>
-      <Route exact path={this.props.match.url} render={IndexWithProps} />
-      <Route path={`${this.props.match.url}/:article`} render={ArticleWithProps} />
+      <Route exact path={match.url} render={IndexWithProps} />
+      <Route path={`${match.url}/:article`} render={ArticleWithProps} />
     </Switch>
-   )}
+  )
 }
 
 
