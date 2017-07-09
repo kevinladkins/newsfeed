@@ -33,7 +33,6 @@ h1, h2, h3 {
 }
 
 
-
 .body {
   display: inline-block;
   height:100vh;
@@ -48,6 +47,10 @@ h1, h2, h3 {
 .button {
   background: white;
   color: black;
+}
+
+.back {
+  color: #ffe6cc;
 }
 
 .back:hover {
