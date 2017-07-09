@@ -45,6 +45,16 @@ h1, h2, h3 {
   display: none;
 }
 
+.button {
+  background: white;
+  color: black;
+}
+
+.back:hover {
+  color: black;
+}
+
+
 a {
   text-decoration: none;
   background-color: transparent;
@@ -53,5 +63,5 @@ a {
 
 a:hover {
   color: black;
-  background-color: white;
+  background-color: transparent;
 }

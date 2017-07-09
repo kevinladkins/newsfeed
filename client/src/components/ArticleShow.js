@@ -10,9 +10,8 @@ const Article = ({article, channelName}) => {
       <h1>{article.title}</h1>
       <BackButton />
       <img src={article.urlToImage} className="image"/>
-      <h5>Posted at: {article.publishedAt}</h5>
-      <p>{article.description}</p>
-      <a href={article.url} target="_blank">Read full article on {channelName}</a>
+      <h3>{article.description}</h3>
+      <h3><a href={article.url} className="link" target="_blank">Read full article on {channelName}</a></h3>
     </div>
   )
 }

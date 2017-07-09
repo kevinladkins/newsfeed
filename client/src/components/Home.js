@@ -4,9 +4,9 @@ import {Link} from 'react-router-dom'
 
 const Home = (props) =>
     <div>
-      <p className="App-intro">
-        Welcome! Log in below to view your newsfeed, or <Link to="/signup">click here</Link> to sign up.
-      </p>
+      <h2 >
+        Welcome! Log in below to view your newsfeed, or <Link className="link" to="/signup">click here</Link> to sign up.
+      </h2>
       <Login history={props.history}/>
     </div>
 

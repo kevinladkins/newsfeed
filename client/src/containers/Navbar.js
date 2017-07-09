@@ -22,6 +22,7 @@ class Navbar extends Component {
   }
 
   render() {
+
     if (this.props.auth.isAuthenticated) {
       return (
         <nav className="navbar">
