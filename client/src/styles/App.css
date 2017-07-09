@@ -57,6 +57,10 @@ h1, h2, h3 {
   color: black;
 }
 
+.article {
+  padding: 0 10% 0 10%;
+}
+
 
 a {
   text-decoration: none;
