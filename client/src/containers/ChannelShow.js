@@ -4,6 +4,7 @@ import {Switch, Route} from 'react-router-dom'
 
 import ArticleCard from '../components/ArticleCard'
 import ArticleShow from '../components/ArticleShow'
+import ArticlesIndex from '../components/ArticlesIndex'
 import BackButton from '../components/BackButton'
 import '../styles/card.css'
 
@@ -13,18 +14,18 @@ class ChannelShow extends Component {
     this.name = props.channel.name
   }
 
-
-
-
   render() {
     var channelArticles = this.props.articles.find(articleObject => articleObject.name === this.props.channel.name);
 
-    if (!!channelArticles) {
-      channelArticles = channelArticles.articles.map((article, index) => (
-          <ArticleCard article={article} channel={this.props.channel} key={index} />
-      ))
-
-    }
+    const IndexWithProps = (props) => {
+       return (
+         <ArticlesIndex
+           channelArticles ={channelArticles}
+           channel={this.name}
+           {...props}
+        />
+       )
+     }
 
     const ArticleWithProps = (props) => {
       return (
@@ -35,15 +36,9 @@ class ChannelShow extends Component {
       );
   }
 
-
   return (
     <Switch>
-      <Route exact path={this.props.match.url} render = {() =>
-        <div>
-          <h1>{this.name}</h1>
-          <BackButton />
-          {channelArticles}
-        </div>}/>
+      <Route exact path={this.props.match.url} render={IndexWithProps} />
       <Route path={`${this.props.match.url}/:article`} render={ArticleWithProps} />
     </Switch>
    )}
