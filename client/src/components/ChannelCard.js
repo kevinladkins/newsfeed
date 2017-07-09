@@ -23,7 +23,7 @@ const ChannelCard = ({channel, articles}) => {
     )
 
     return (
-      <Card title={title} content={channelArticles}/>
+      <Card title={title} content={channelArticles} key={channel.source_id}/>
     )
   }
 
