@@ -1,5 +1,6 @@
 * {
   background-color: #a3a3c2;
+  border: 1px solid black;
 }
 
 h1, h2, h3 {
@@ -37,7 +38,7 @@ h1, h2, h3 {
   display: inline-block;
   height:100vh;
   overflow: scroll;
-
+  width: 100%;
 }
 
 .hidden {
