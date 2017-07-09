@@ -18,7 +18,7 @@ h1, h2, h3 {
   height: 150px;
   padding: 10px;
   color: white;
-  width: 100%;
+  /*width: 100%;*/
 }
 
 .App-header h1 {
@@ -38,8 +38,7 @@ h1, h2, h3 {
   display: inline-block;
   height:100vh;
   overflow: scroll;
-  width: 100%;
-  clear: both;
+
 }
 
 .hidden {
