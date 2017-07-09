@@ -9,7 +9,7 @@ function setArticleLink(title) {
   return encodeURIComponent(title)
 }
 
-const ChannelIndexView = ({channel, articles}) => {
+const ChannelCard = ({channel, articles}) => {
     const articleObject = articles.find(articleObject => articleObject.name === channel.name);
 
     const channelArticles = articleObject.articles.map((article, index) => {
@@ -28,4 +28,4 @@ const ChannelIndexView = ({channel, articles}) => {
   }
 
 
-export default ChannelIndexView
+export default ChannelCard

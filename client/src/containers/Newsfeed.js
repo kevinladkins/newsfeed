@@ -4,7 +4,8 @@ import {bindActionCreators} from 'redux'
 import {Switch, Route} from 'react-router-dom';
 
 import ChannelShow from './ChannelShow'
-import ChannelIndexView from '../components/ChannelIndexView'
+import ChannelCard from '../components/ChannelCard'
+import NewsfeedLanding from '../components/NewsfeedLanding'
 import '../styles/App.css'
 import * as channelsActions from '../actions/channelsActions'
 
@@ -47,15 +48,21 @@ class Newsfeed extends Component {
 
     const selectedChannels = this.channels().map((channel, index) => {
        return (
-       <ChannelIndexView channel={channel} key={index} articles={this.props.articles}/>
+       <ChannelCard channel={channel} key={index} articles={this.props.articles}/>
        )
     })
-    return (
-      <Switch>
-        <Route exact path={this.props.match.url} render={()=> <div>{selectedChannels}</div>}/>
-        <Route path ={`${this.props.match.url}/:ChannelId`} component={ChannelShow} />
-      </Switch>
-    )
+    if (this.channels().length === 0) {
+      return (
+        <NewsfeedLanding />
+      )
+    } else {
+      return (
+        <Switch>
+          <Route exact path={this.props.match.url} render={()=> <div>{selectedChannels}</div>}/>
+          <Route path ={`${this.props.match.url}/:ChannelId`} component={ChannelShow} />
+        </Switch>
+      )
+    }
   }
 }
 

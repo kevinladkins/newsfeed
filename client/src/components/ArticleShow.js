@@ -6,7 +6,7 @@ import BackButton from './BackButton'
 
 const Article = ({article, channelName}) => {
   return (
-    <div>
+    <div className="article">
       <h1>{article.title}</h1>
       <BackButton />
       <img src={article.urlToImage} className="image-large"/>
