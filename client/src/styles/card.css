@@ -5,6 +5,12 @@
   border: 1px solid black;
 }
 
+.image-large {
+  height: 300px;
+  length: 300px;
+  border: 1px solid black;
+}
+
 
 
 .card {
@@ -57,7 +63,6 @@
   background: transparent;
 
 }
-
 
 .card-content a:hover {
   color: #a3a3c2;
