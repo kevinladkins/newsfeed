@@ -4,7 +4,6 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 
 import * as sessionsActions from '../actions/sessionsActions'
-import Auth from '../auth/authenticator'
 import '../styles/Navbar.css'
 
 

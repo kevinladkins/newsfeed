@@ -16,10 +16,9 @@ export default function sourcesReducer(state = initialState.sources, action) {
       });
       return newState
     case 'LOG_OUT':
-      var newState = state.map(source => {
+      return state.map(source => {
         return Object.assign({}, source, {selected: false})
       });
-      return newState
     default:
       return state;
   }

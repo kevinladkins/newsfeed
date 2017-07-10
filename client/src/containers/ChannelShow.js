@@ -1,10 +1,10 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {connect} from 'react-redux';
 import {Switch, Route} from 'react-router-dom'
 
 import ArticleShow from '../components/ArticleShow'
 import ArticlesIndex from '../components/ArticlesIndex'
-import BackButton from '../components/BackButton'
+
 
 
 
@@ -39,7 +39,7 @@ const ChannelShow = ({match, articles, channel}) => {
 
 
 const mapStateToProps = (state, ownProps) => {
-  const channel = state.sources.find(source => source.source_id == ownProps.match.params.ChannelId)
+  const channel = state.sources.find(source => source.source_id === ownProps.match.params.ChannelId)
   if (channel) {
     return {
       articles: state.articles,

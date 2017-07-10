@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
-import {history} from 'react-router-dom'
+
 
 import * as sessionsActions from '../actions/sessionsActions';
 

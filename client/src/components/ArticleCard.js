@@ -10,7 +10,7 @@ const ArticleCard = ({channel, article}) => {
     <Link to={`/newsfeed/${channel.source_id}/${setArticleLink(article.title)}`} className="article-link">
       <div className="card">
         <h3>{article.title}</h3>
-        <img src={article.urlToImage} className="image"/>
+        <img src={article.urlToImage} className="image" alt=""/>
       </div>
     </Link>
   )

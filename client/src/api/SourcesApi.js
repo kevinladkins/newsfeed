@@ -6,10 +6,6 @@ export function fetchSources() {
   });
 }
 
-const headers = {
-  'Content-Type': 'application/json',
-  'AUTHORIZATION': `Bearer: ${sessionStorage.jwt}`
-}
 
 export function saveSources(user_id, source_ids) {
   return fetch(`/users/${user_id}`, {method: 'PUT',
