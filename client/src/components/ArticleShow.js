@@ -1,10 +1,11 @@
 import React from 'react'
-import {connect} from 'react-redux';
-
 import BackButton from './BackButton'
 
 
-const ArticleShow = ({article, channel}) => {
+const ArticleShow = ({channel, channelArticles, match}) => {
+  const matchParams = decodeURIComponent(match.params.article)
+  const article = channelArticles.articles.find(article => article.title === matchParams)
+  
   return (
     <div className="article">
       <h1>{article.title}</h1>
@@ -17,22 +18,4 @@ const ArticleShow = ({article, channel}) => {
 }
 
 
-function mapStateToProps(state, ownProps) {
-  const matchParams = decodeURIComponent(ownProps.match.params.article)
-  var articles = []
-    if (state.articles.find(channel => channel.name === ownProps.channel.name)) {
-      articles = state.articles.find(channel => channel.name === ownProps.channel.name).articles;
-    }
-  const article = articles.find(article => article.title === matchParams)
-    if (article) {
-      return {
-          article: article
-      }
-    } else {
-    return {
-      article: {}
-    }
-  }
-}
-
-export default connect(mapStateToProps)(ArticleShow)
+export default ArticleShow

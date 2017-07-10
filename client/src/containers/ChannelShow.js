@@ -25,6 +25,7 @@ const ChannelShow = ({match, articles, channel}) => {
   const ArticleWithProps = (props) => {
     return (
       <ArticleShow
+        channelArticles={channelArticles}
         channel={channel}
         {...props}
       />);
