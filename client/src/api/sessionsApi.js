@@ -9,5 +9,7 @@ export function login(userDetails) {
       body: JSON.stringify({user: userDetails})
     }).then(response =>
       response.json()
-    )
+    ).catch(error => {
+     throw(error);
+    });
 }
