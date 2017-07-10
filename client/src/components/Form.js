@@ -13,7 +13,7 @@ const Form = ({fields, handleChange, handleSubmit, submitValue, message}) => {
     <form onSubmit={handleSubmit} >
       {formFields}
       <input type="Submit" className="button" value={submitValue} /><br />
-      <span>{message}</span>
+      <span className="message">{message}</span>
     </form>
   )
 }
