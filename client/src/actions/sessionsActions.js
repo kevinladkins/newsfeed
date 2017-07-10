@@ -6,7 +6,6 @@ export function loginUser(userDetails, history) {
   return function(dispatch) {
     dispatch({type: 'LOGGING_IN'})
     return login(userDetails).then(response => {
-      debugger
         if (response.token) {
           dispatch(
             {
@@ -16,6 +15,13 @@ export function loginUser(userDetails, history) {
           )
           dispatch(updateSources(response.sources, history));
           sessionStorage.setItem('jwt', response.token);
+        } else {
+          dispatch(
+            {
+              type: 'LOGIN_ERROR',
+              payload: response.errors
+            }
+          )
         }
       }).catch(error => {
         throw(error);
@@ -30,5 +36,4 @@ export function logOutUser() {
       { type: 'LOG_OUT'}
     )
   }
-
 }
