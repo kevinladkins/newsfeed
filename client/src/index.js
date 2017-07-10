@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 
 import './styles/index.css';
 import {loadSources} from './actions/sourcesActions'
-import App from './containers/App';
+import App from './components/App';
 import configureStore from './store/configureStore'
 import registerServiceWorker from './registerServiceWorker';
 
