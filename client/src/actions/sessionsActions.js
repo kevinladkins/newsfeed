@@ -1,27 +1,38 @@
 import {login} from '../api/sessionsApi'
 import {updateSources} from './sourcesActions'
-import Auth from '../auth/authenticator.js'
+
+export const loggingIn = () => {
+  return {type: 'LOGGING_IN'}
+}
+
+export const loggedIn = (response) => {
+  return {
+    type: 'LOGGED_IN',
+    payload: response.user.id
+  }
+}
+
+export const loginError = (response) => {
+  return {
+    type: 'LOGIN_ERROR',
+    payload: response.errors
+  }
+}
+
+export const logOut = () => {
+   return {type: 'LOG_OUT'}
+}
 
 export function loginUser(userDetails, history) {
   return function(dispatch) {
-    dispatch({type: 'LOGGING_IN'})
+    dispatch(loggingIn())
     return login(userDetails).then(response => {
         if (response.token) {
-          dispatch(
-            {
-              type: 'LOGGED_IN',
-              payload: response.user.id
-            }
-          )
+          dispatch(loggedIn(response));
           dispatch(updateSources(response.sources, history));
           sessionStorage.setItem('jwt', response.token);
         } else {
-          dispatch(
-            {
-              type: 'LOGIN_ERROR',
-              payload: response.errors
-            }
-          )
+          dispatch(loginError(response));
         }
       }).catch(error => {
         throw(error);
@@ -29,11 +40,10 @@ export function loginUser(userDetails, history) {
   }
 }
 
+
 export function logOutUser() {
   return function(dispatch) {
-    Auth.logOut()
-    dispatch(
-      { type: 'LOG_OUT'}
-    )
+    sessionStorage.removeItem('jwt')
+    dispatch(logOut());
   }
 }
