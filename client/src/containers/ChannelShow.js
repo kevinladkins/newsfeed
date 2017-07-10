@@ -8,15 +8,14 @@ import BackButton from '../components/BackButton'
 
 
 
-
 const ChannelShow = ({match, articles, channel}) => {
 
-  var channelArticles = articles.find(articleObject => articleObject.name === channel.name);
+  var channelArticles = articles.find(articleObject => articleObject.name === channel.name).articles;
 
   const IndexWithProps = (props) => {
      return (
        <ArticlesIndex
-         channelArticles ={channelArticles}
+         articles ={channelArticles}
          channel={channel}
          {...props}
       />);
@@ -25,7 +24,7 @@ const ChannelShow = ({match, articles, channel}) => {
   const ArticleWithProps = (props) => {
     return (
       <ArticleShow
-        channelArticles={channelArticles}
+        articles={channelArticles}
         channel={channel}
         {...props}
       />);

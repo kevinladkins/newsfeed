@@ -2,10 +2,10 @@ import React from 'react'
 import BackButton from './BackButton'
 
 
-const ArticleShow = ({channel, channelArticles, match}) => {
+const ArticleShow = ({channel, articles, match}) => {
   const matchParams = decodeURIComponent(match.params.article)
-  const article = channelArticles.articles.find(article => article.title === matchParams)
-  
+  const article = articles.find(article => article.title === matchParams)
+
   return (
     <div className="article">
       <h1>{article.title}</h1>
