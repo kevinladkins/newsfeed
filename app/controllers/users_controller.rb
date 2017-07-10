@@ -7,7 +7,7 @@ class UsersController < ApplicationController
       jwt = Auth.issue({user_id: @user.id})
       render json: {user: {id: @user.id, email: @user.email}, sources: @user.source_ids, token: jwt}
     else
-      render json: {errors: @user.errors},
+      render json: {errors: @user.errors.full_messages},
       status: 500
     end
 
