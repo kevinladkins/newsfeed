@@ -19,13 +19,13 @@ class Sources extends Component {
     this.selectedSources = new Set();
    }
 
-   toggleSource = label => {
-     if (this.selectedSources.has(label)) {
-       this.selectedSources.delete(label);
-     } else {
-       this.selectedSources.add(label)
-     }
-   }
+  toggleSource = label => {
+    if (this.selectedSources.has(label)) {
+      this.selectedSources.delete(label);
+    } else {
+      this.selectedSources.add(label)
+    }
+  }
 
   saveSources(event) {
     event.preventDefault();
@@ -40,7 +40,6 @@ class Sources extends Component {
     const sourcesList = this.props.sources.map((source, index) =>
           <Source source={source} key={index} toggleSource={this.toggleSource} handleChange={this.handleChange} />
     );
-
 
     return (
       <SourcesIndex sourcesList={sourcesList} saveSources={this.saveSources} />
