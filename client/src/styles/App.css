@@ -61,6 +61,10 @@ h1, h2, h3 {
   padding: 0 10% 0 10%;
 }
 
+.message {
+  color: red;
+}
+
 
 a {
   text-decoration: none;
