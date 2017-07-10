@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 
 import './styles/index.css';
-import {getSources} from './actions/sourcesActions'
+import {loadSources} from './actions/sourcesActions'
 import App from './containers/App';
 import configureStore from './store/configureStore'
 import registerServiceWorker from './registerServiceWorker';
 
 const store = configureStore()
 
-store.dispatch(getSources())
+store.dispatch(loadSources())
 
 ReactDOM.render(
   <Provider store={store}>
