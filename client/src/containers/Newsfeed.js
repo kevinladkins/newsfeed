@@ -6,8 +6,8 @@ import {Switch, Route} from 'react-router-dom';
 import ChannelShow from './ChannelShow'
 import ChannelCard from '../components/ChannelCard'
 import NewsfeedLanding from '../components/NewsfeedLanding'
-import '../styles/App.css'
 import * as channelsActions from '../actions/channelsActions'
+import '../styles/App.css'
 
 
 class Newsfeed extends Component {
