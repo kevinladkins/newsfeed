@@ -17,7 +17,7 @@ const ChannelShow = ({match, articles, channel}) => {
      return (
        <ArticlesIndex
          channelArticles ={channelArticles}
-         channel={channel.name}
+         channel={channel}
          {...props}
       />);
    }
@@ -25,7 +25,7 @@ const ChannelShow = ({match, articles, channel}) => {
   const ArticleWithProps = (props) => {
     return (
       <ArticleShow
-        channelName={channel.name}
+        channel={channel}
         {...props}
       />);
   }
