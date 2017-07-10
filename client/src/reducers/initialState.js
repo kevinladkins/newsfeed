@@ -7,6 +7,6 @@ export default {
       isAuthenticated: false,
       isAuthenticating: false,
       user_id: '',
-      message: ''
-  }
+  },
+  message: ''
 }
