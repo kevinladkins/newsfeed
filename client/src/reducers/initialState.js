@@ -6,6 +6,7 @@ export default {
   auth: {
       isAuthenticated: false,
       isAuthenticating: false,
-      user_id: ''
+      user_id: '',
+      message: ''
   }
 }

@@ -54,10 +54,14 @@ class Login extends Component {
        handleChange={this.handleChange}
        handleSubmit={this.handleSubmit}
        submitValue="Log In"
-
+       message={this.props.auth.message}
       />
     )
   }
+}
+
+const mapStateToProps = (state) => {
+  return {auth: state.auth}
 }
 
 function mapDispatchToProps(dispatch) {
@@ -66,4 +70,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

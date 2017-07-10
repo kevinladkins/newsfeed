@@ -6,6 +6,7 @@ export function loginUser(userDetails, history) {
   return function(dispatch) {
     dispatch({type: 'LOGGING_IN'})
     return login(userDetails).then(response => {
+      debugger
         if (response.token) {
           dispatch(
             {
