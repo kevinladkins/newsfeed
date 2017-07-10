@@ -73,6 +73,7 @@ class Signup extends Component {
          handleChange={this.handleChange}
          handleSubmit={this.handleSubmit}
          submitValue="Sign Up"
+         message={this.props.message}
         />
         <span className="message">{this.state.message}</span>
       </div>
@@ -80,10 +81,14 @@ class Signup extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {actions:
     bindActionCreators(userActions, dispatch)
   }
 }
 
-export default connect(null, mapDispatchToProps)(Signup)
+const mapStateToProps = (state) => {
+  return {message: state.message}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signup)

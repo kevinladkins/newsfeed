@@ -54,14 +54,14 @@ class Login extends Component {
        handleChange={this.handleChange}
        handleSubmit={this.handleSubmit}
        submitValue="Log In"
-       message={this.props.auth.message}
+       message={this.props.message}
       />
     )
   }
 }
 
 const mapStateToProps = (state) => {
-  return {auth: state.auth}
+  return {message: state.message}
 }
 
 function mapDispatchToProps(dispatch) {
