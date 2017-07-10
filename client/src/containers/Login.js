@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
+import Form from '../components/Form'
 
 
 import * as sessionsActions from '../actions/sessionsActions';
@@ -34,14 +35,27 @@ class Login extends Component {
   }
 
   render() {
+    const fields = [
+      {label: "Email",
+       type: "email",
+       name: "email",
+       value: this.state.email
+     },
+      {label: "Passsord",
+       type: "password",
+       name: "password",
+       value: this.state.password
+      }
+    ]
+
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>Email: </label>
-        <input type="text" name="email" value={this.state.email} onChange={this.handleChange} /><br />
-        <label>Password: </label>
-        <input type="password" name="password" value={this.state.password} onChange={this.handleChange} /><br />
-        <input type="Submit" className="button" value="Log In" />
-      </form>
+      <Form
+       fields={fields}
+       handleChange={this.handleChange}
+       handleSubmit={this.handleSubmit}
+       submitValue="Log In"
+
+      />
     )
   }
 }
