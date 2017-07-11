@@ -5,14 +5,13 @@ import Card from '../components/Card'
 
 
 
-function setArticleUrl(title) {
-  var sanitizedTitle = title.replace(/%/g, "[percent]");
-  return encodeURIComponent(sanitizedTitle);
-}
 
-const ChannelCard = ({channel, articles}) => {
+
+const ChannelCard = ({channel, articles, setArticleUrl}) => {
+    //finds articles associated with this channel
     const articleObject = articles.find(articleObject => articleObject.name === channel.name);
 
+    //maps article titles to links
     const channelArticles = articleObject.articles.map((article, index) => {
       return (
         <Link to={`/newsfeed/${channel.source_id}/${setArticleUrl(article.title)}`}><h4 className="article-title">{article.title}</h4></Link>
