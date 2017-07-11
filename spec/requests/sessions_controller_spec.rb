@@ -61,7 +61,7 @@ RSpec.describe "Sessions", type: :request do
         body = JSON.parse(response.body)
 
         expect(response.status).to eq(500)
-        expect(body["errors"]).to eq({"email"=>["user not found"]})
+        expect(body["errors"]).to eq(["user not found"])
 
       end
 
@@ -80,7 +80,7 @@ RSpec.describe "Sessions", type: :request do
         body = JSON.parse(response.body)
 
         expect(response.status).to eq(500)
-        expect(body["errors"]).to eq({"password"=>["password does not match provided email"]})
+        expect(body["errors"]).to eq(["password does not match provided email"])
 
       end
 

@@ -59,7 +59,7 @@ RSpec.describe "Users", type: :request do
         body = JSON.parse(response.body)
 
         expect(response.status).to eq(500)
-        expect(body['errors']['email']).to eq(["is invalid"])
+        expect(body['errors']).to eq(["Email is invalid"])
 
       end
 
@@ -80,7 +80,7 @@ RSpec.describe "Users", type: :request do
           body = JSON.parse(response.body)
 
           expect(response.status).to eq(500)
-          expect(body['errors']).to eq({"password"=>["can't be blank"], "email"=>["can't be blank", "is invalid"]})
+          expect(body['errors']).to eq(["Password can't be blank", "Email can't be blank", "Email is invalid"])
 
         end
 
@@ -102,7 +102,7 @@ RSpec.describe "Users", type: :request do
         body = JSON.parse(response.body)
 
         expect(response.status).to eq(500)
-        expect(body['errors']).to eq({"email"=>["has already been taken"]})
+        expect(body['errors']).to eq(["Email has already been taken"])
 
       end
 
