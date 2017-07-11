@@ -10,13 +10,24 @@ import ArticlesIndex from '../components/ArticlesIndex'
 
 const ChannelShow = ({match, articles, channel}) => {
 
+  const setArticleUrl = (title) => {
+    var sanitizedTitle = title.replace(/%/g, "[percent]")
+    return encodeURIComponent(sanitizedTitle)
+  }
+
+  const decodeArticleUrl = (title) => {
+    const sanitizedTitle = decodeURIComponent(title)
+    return sanitizedTitle.split("[percent]").join("%")
+  }
+
   var channelArticles = articles.find(articleObject => articleObject.name === channel.name).articles;
 
-  const IndexWithProps = (props) => {
+  const ArticlesIndexWithProps = (props) => {
      return (
        <ArticlesIndex
          articles ={channelArticles}
          channel={channel}
+         setArticleUrl={setArticleUrl}
          {...props}
       />);
    }
@@ -26,12 +37,13 @@ const ChannelShow = ({match, articles, channel}) => {
       <ArticleShow
         articles={channelArticles}
         channel={channel}
+        decodeArticleUrl={decodeArticleUrl}
         {...props}
       />);
   }
   return (
     <Switch>
-      <Route exact path={match.url} render={IndexWithProps} />
+      <Route exact path={match.url} render={ArticlesIndexWithProps} />
       <Route path={`${match.url}/:article`} render={ArticleWithProps} />
     </Switch>
   )

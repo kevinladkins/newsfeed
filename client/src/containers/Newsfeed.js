@@ -34,11 +34,15 @@ class Newsfeed extends Component {
     this.channels().forEach(channel => {
       this.props.actions.getArticles(channel)
     })
-
   }
 
   channels() {
     return this.props.sources.filter((source) => !!source.selected)
+  }
+
+  setArticleUrl = (title) => {
+    var sanitizedTitle = title.replace(/%/g, "[percent]");
+    return encodeURIComponent(sanitizedTitle);
   }
 
   render() {
@@ -48,9 +52,10 @@ class Newsfeed extends Component {
 
     const selectedChannels = this.channels().map((channel, index) => {
        return (
-       <ChannelCard channel={channel} key={index} articles={this.props.articles}/>
+         <ChannelCard channel={channel} setArticleUrl={this.setArticleUrl}  articles={this.props.articles} key={index}/>
        )
     })
+
     if (this.channels().length === 0) {
       return (
         <NewsfeedLanding />
