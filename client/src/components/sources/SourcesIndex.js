@@ -1,5 +1,5 @@
 import React from 'react'
-import BackButton from './BackButton'
+import BackButton from '../common/BackButton'
 
 const SourcesIndex = ({saveSources, sourcesList}) =>
   <div className="sources-container">

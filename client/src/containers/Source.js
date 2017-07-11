@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-import SourceCard from '../components/SourceCard'
+import SourceCard from '../components/sources/SourceCard'
 
 
 class Source extends Component {

@@ -1,6 +1,6 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
-import '../styles/App.css'
+import '../../styles/app.css'
 
 const BackButton = ({history}) => (
   <p>

@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 
-import NavAuth from '../components/NavAuth'
-import NavNoAuth from '../components/NavNoAuth'
+import NavAuth from '../components/nav/NavAuth'
+import NavNoAuth from '../components/nav/NavNoAuth'
 import * as sessionsActions from '../actions/sessionsActions'
 import '../styles/navbar.css'
 

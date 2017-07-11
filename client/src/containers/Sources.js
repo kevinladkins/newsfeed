@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 
 import * as sourcesActions from '../actions/sourcesActions';
-import SourcesIndex from '../components/SourcesIndex'
+import SourcesIndex from '../components/sources/SourcesIndex'
 import Source from './Source'
 import '../styles/sources.css'
 

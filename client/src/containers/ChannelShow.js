@@ -2,8 +2,8 @@ import React from 'react'
 import {connect} from 'react-redux';
 import {Switch, Route} from 'react-router-dom'
 
-import ArticleShow from '../components/ArticleShow'
-import ArticlesIndex from '../components/ArticlesIndex'
+import ArticleShow from '../components/articles/ArticleShow'
+import ArticlesIndex from '../components/articles/ArticlesIndex'
 
 const ChannelShow = ({match, articles, channel}) => {
 
@@ -38,7 +38,7 @@ const ChannelShow = ({match, articles, channel}) => {
         {...props}
       />);
   }
-  
+
   return (
     <Switch>
       <Route exact path={match.url} render={ArticlesIndexWithProps} />

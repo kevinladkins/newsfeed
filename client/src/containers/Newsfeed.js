@@ -4,10 +4,10 @@ import {bindActionCreators} from 'redux'
 import {Switch, Route} from 'react-router-dom';
 
 import ChannelShow from './ChannelShow'
-import ChannelCard from '../components/ChannelCard'
-import NewsfeedLanding from '../components/NewsfeedLanding'
+import ChannelCard from '../components/channels/ChannelCard'
+import NewsfeedLanding from '../components/newsfeed/NewsfeedLanding'
 import * as articlesActions from '../actions/articlesActions'
-import '../styles/App.css'
+import '../styles/app.css'
 
 
 class Newsfeed extends Component {

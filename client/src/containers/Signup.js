@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 
-import Form from '../components/Form'
+import Form from '../components/common/Form'
 
 
 import * as userActions from '../actions/usersActions'

@@ -1,6 +1,6 @@
 import React from 'react'
 import ArticleCard from './ArticleCard'
-import BackButton from './BackButton'
+import BackButton from '../common/BackButton'
 
 const ArticlesIndex = ({articles, channel, setArticleUrl}) => {
 
