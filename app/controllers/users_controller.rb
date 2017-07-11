@@ -13,12 +13,6 @@ class UsersController < ApplicationController
 
   end
 
-
-  def show
-    user = User.find(params[:id])
-    render json: {user: user, sources: user.source_ids}
-  end
-
   def update
     user = User.find_by(id: params[:id])
     if current_user != user
