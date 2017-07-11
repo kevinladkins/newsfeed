@@ -9,7 +9,7 @@ const ArticlesIndex = ({articles, channel, setArticleUrl}) => {
     })
 
     return (
-      <div>
+      <div className="body">
         <h1>{channel.name}</h1>
         <BackButton />
         {articleList}
