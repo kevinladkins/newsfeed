@@ -8,8 +8,6 @@ import * as sessionsActions from '../actions/sessionsActions'
 import '../styles/navbar.css'
 
 
-
-
 class Navbar extends Component {
   constructor(props) {
     super();
@@ -28,13 +26,11 @@ class Navbar extends Component {
         <NavAuth logout={this.logout} />
       )
     } else {
-      return (
-        <NavNoAuth />
-      )
+        return (
+          <NavNoAuth />
+        )
     }
   }
-
-
 }
 
 const mapStateToProps = (state) => {

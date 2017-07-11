@@ -5,9 +5,6 @@ import {Switch, Route} from 'react-router-dom'
 import ArticleShow from '../components/ArticleShow'
 import ArticlesIndex from '../components/ArticlesIndex'
 
-
-
-
 const ChannelShow = ({match, articles, channel}) => {
 
   const setArticleUrl = (title) => {
@@ -41,6 +38,7 @@ const ChannelShow = ({match, articles, channel}) => {
         {...props}
       />);
   }
+  
   return (
     <Switch>
       <Route exact path={match.url} render={ArticlesIndexWithProps} />
