@@ -1,8 +1,8 @@
-import {fetchChannels} from '../api/channelsApi'
+import {fetchArticles} from '../api/articlesApi'
 
-export function getArticles(channel) {
+export function loadArticles(channel) {
   return function(dispatch) {
-    return fetchChannels(channel)
+    return fetchArticles(channel)
       .then(response => {
         dispatch({
           type: 'GET_ARTICLES',

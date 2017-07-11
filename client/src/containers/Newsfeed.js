@@ -6,7 +6,7 @@ import {Switch, Route} from 'react-router-dom';
 import ChannelShow from './ChannelShow'
 import ChannelCard from '../components/ChannelCard'
 import NewsfeedLanding from '../components/NewsfeedLanding'
-import * as channelsActions from '../actions/channelsActions'
+import * as articlesActions from '../actions/articlesActions'
 import '../styles/App.css'
 
 
@@ -32,7 +32,7 @@ class Newsfeed extends Component {
 
   setArticles() {
     this.channels().forEach(channel => {
-      this.props.actions.getArticles(channel)
+      this.props.actions.loadArticles(channel)
     })
   }
 
@@ -82,7 +82,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    actions: bindActionCreators(channelsActions, dispatch)
+    actions: bindActionCreators(articlesActions, dispatch)
   }
 }
 
