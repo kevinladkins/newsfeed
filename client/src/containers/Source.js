@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 
+import SourceCard from '../components/SourceCard'
+
 
 class Source extends Component {
   constructor(props) {
@@ -37,10 +39,7 @@ class Source extends Component {
 
   render() {
     return(
-      <div className="source" onClick={this.clickDiv} style={this.setStyle()}>
-        <h3>{this.props.source.name}</h3>
-        <p>{this.props.source.description}</p>
-      </div>
+      <SourceCard source={this.props.source} clickDiv={this.clickDiv} setStyle={this.setStyle} />
     )
   }
 }
