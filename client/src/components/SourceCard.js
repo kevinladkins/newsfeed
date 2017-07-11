@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/Sources.css'
+
 
 const SourceCard = ({source, clickDiv, setStyle}) => {
   return (
