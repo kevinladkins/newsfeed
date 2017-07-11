@@ -1,11 +1,11 @@
 import React from 'react'
 
 const Form = ({fields, handleChange, handleSubmit, submitValue, message}) => {
-  const formFields = fields.map(field => {
+  const formFields = fields.map((field, index) => {
     return (
-      <div>
+      <div key={index}>
         <label>{field.label} </label>
-        <input type={field.type} name={field.name} value={field.value} onChange={handleChange} /><br />
+        <input type={field.type} name={field.name} value={field.value} onChange={handleChange}  /><br />
       </div>
     )
   })
