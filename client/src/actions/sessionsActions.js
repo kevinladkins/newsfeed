@@ -27,13 +27,13 @@ export function loginUser(userDetails, history) {
   return function(dispatch) {
     dispatch(loggingIn())
     return login(userDetails).then(response => {
-        if (response.token) {
-          dispatch(loggedIn(response));
-          dispatch(updateSources(response.sources, history));
-          sessionStorage.setItem('jwt', response.token);
-        } else {
-          dispatch(loginError(response));
-        }
+      if (response.token) {
+        dispatch(loggedIn(response));
+        dispatch(updateSources(response.sources, history));
+        sessionStorage.setItem('jwt', response.token);
+      } else {
+        dispatch(loginError(response));
+      }
       }).catch(error => {
         throw(error);
       });
