@@ -5,8 +5,9 @@ import Card from '../components/Card'
 
 
 
-function setArticleLink(title) {
-  return encodeURIComponent(title)
+function setArticleUrl(title) {
+  var sanitizedTitle = title.replace(/%/g, "[percent]");
+  return encodeURIComponent(sanitizedTitle);
 }
 
 const ChannelCard = ({channel, articles}) => {
@@ -14,7 +15,7 @@ const ChannelCard = ({channel, articles}) => {
 
     const channelArticles = articleObject.articles.map((article, index) => {
       return (
-        <Link to={`/newsfeed/${channel.source_id}/${setArticleLink(article.title)}`}><h4 className="article-title">{article.title}</h4></Link>
+        <Link to={`/newsfeed/${channel.source_id}/${setArticleUrl(article.title)}`}><h4 className="article-title">{article.title}</h4></Link>
       )
     })
 

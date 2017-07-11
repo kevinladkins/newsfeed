@@ -2,8 +2,13 @@ import React from 'react'
 import BackButton from './BackButton'
 
 
+function decodeArticleUrl(title) {
+  const sanitizedTitle = decodeURIComponent(title)
+  return sanitizedTitle.split("[percent]").join("%")
+}
+
 const ArticleShow = ({channel, articles, match}) => {
-  const matchParams = decodeURIComponent(match.params.article)
+  const matchParams = decodeArticleUrl(match.params.article)
   const article = articles.find(article => article.title === matchParams)
 
   return (
@@ -16,6 +21,7 @@ const ArticleShow = ({channel, articles, match}) => {
     </div>
   )
 }
+
 
 
 export default ArticleShow
