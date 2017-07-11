@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux'
 import * as sourcesActions from '../actions/sourcesActions';
 import SourcesIndex from '../components/SourcesIndex'
 import Source from './Source'
-import '../styles/Sources.css'
+import '../styles/sources.css'
 
 
 

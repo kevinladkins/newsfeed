@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux'
 import NavAuth from '../components/NavAuth'
 import NavNoAuth from '../components/NavNoAuth'
 import * as sessionsActions from '../actions/sessionsActions'
-import '../styles/Navbar.css'
+import '../styles/navbar.css'
 
 
 

@@ -1,4 +1,4 @@
-import {fetchSources, saveSources} from '../api/SourcesApi'
+import {fetchSources, saveSources} from '../api/sourcesApi'
 
 export const getSources = (response) => {
   return {
